@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RobotsTxt AI Crawler Auditor — Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator</title>
-  <meta name="description" content="Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator. Sovereign local-first developer tool with zero tracking, built by Neal Frazier Tech.">
+  <title>RobotsTxt Pro — AI Crawler & Search Engine Readiness Studio</title>
+  <meta name="description" content="Production-grade robots.txt audit & AI crawler simulator. Test URL access rules in real-time for Googlebot, GPTBot, ClaudeBot, PerplexityBot, and Applebot.">
+  <meta name="keywords" content="robots.txt tester, ai crawler audit, gptbot allow, claudebot, perplexitybot, seo audit, aeo optimization, sitemap validator, neal frazier">
+  <meta name="author" content="Neal Frazier">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://robots-txt-auditor.netlify.app/">
 
   <!-- OpenGraph -->
-  <meta property="og:title" content="RobotsTxt AI Crawler Auditor — Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator">
-  <meta property="og:description" content="Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator. Instant browser-based developer utility with dual Stripe & Web3 Solana rails.">
+  <meta property="og:title" content="RobotsTxt Pro — AI Crawler & Search Readiness Studio">
+  <meta property="og:description" content="Real-time in-browser robots.txt parser and AI crawler simulator with dual Stripe and Solana DePay checkout.">
   <meta property="og:url" content="https://robots-txt-auditor.netlify.app/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Neal Frazier Tech / NullAI">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@1nc0gn30">
+  <meta name="twitter:creator" content="@1nc0gn30">
+  <meta name="twitter:title" content="RobotsTxt Pro — AI Crawler Simulator">
+  <meta name="twitter:description" content="Test your robots.txt against GPTBot, ClaudeBot, and Googlebot with instant real-time AST validation.">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -22,52 +32,83 @@
       {
         "@type": "WebApplication",
         "@id": "https://robots-txt-auditor.netlify.app/#app",
-        "name": "RobotsTxt AI Crawler Auditor",
+        "name": "RobotsTxt Pro Studio",
         "url": "https://robots-txt-auditor.netlify.app/",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "All",
-        "description": "Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator",
+        "description": "Production-grade robots.txt syntax validator, AI crawler simulator, and search engine readiness suite.",
+        "creator": {
+          "@type": "Person",
+          "name": "Neal Frazier",
+          "url": "https://nealfrazier.tech",
+          "sameAs": "https://github.com/1nc0gn30"
+        },
         "offers": {
           "@type": "Offer",
           "price": "19.00",
           "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
           "url": "https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J"
         }
       },
       {
         "@type": "FAQPage",
+        "@id": "https://robots-txt-auditor.netlify.app/#faq",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How does RobotsTxt AI Crawler Auditor work?",
+            "name": "How does RobotsTxt Pro simulate AI crawlers?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "RobotsTxt AI Crawler Auditor executes directly in your browser with zero remote server hops, providing instantaneous results and zero latency."
+              "text": "RobotsTxt Pro parses your rules according to RFC 9309 standards directly in your browser. It simulates exact matching logic for Googlebot, GPTBot, ClaudeBot, PerplexityBot, and Applebot without sending your data to external servers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included with the $19 Pro License?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Pro License unlocks automated daily crawler drift monitoring, webhook alerting, unlimited sitemap verification, and exportable crawler compliance audit reports."
             }
           }
         ]
       }
     ]
+  }
   </script>
 
   <!-- DePay Web3 Solana CDN -->
   <script src="https://integrate.depay.com/widgets/v13.js"></script>
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #090A0F;
-      --card-bg: #12141D;
-      --border: #232738;
-      --text: #F3F4F6;
-      --text-muted: #9CA3AF;
-      --primary: #10B981;
-      --accent-gold: #F59E0B;
+      --bg: #07090E;
+      --card-bg: #0E121B;
+      --card-alt: #131824;
+      --border: #1E2638;
+      --border-focus: #3B82F6;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --emerald: #10B981;
+      --emerald-glow: rgba(16, 185, 129, 0.2);
+      --cyan: #06B6D4;
+      --purple: #A855F7;
+      --gold: #F59E0B;
+      --red: #EF4444;
       --stripe: #635BFF;
       --solana: #14F195;
-      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+      --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -75,80 +116,972 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.5;
+      overflow-x: hidden;
     }
+
+    /* Ambient Glow Background */
+    .ambient-glow {
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.04) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     header {
-      background: var(--card-bg);
+      position: relative;
+      z-index: 10;
+      background: rgba(14, 18, 27, 0.85);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 14px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; }
-    .badge { font-size: 10px; padding: 2px 8px; border-radius: 9999px; background: rgba(16,185,129,0.15); color: var(--primary); border: 1px solid var(--primary); }
-    .actions { display: flex; align-items: center; gap: 10px; }
-    .btn-stripe { padding: 8px 16px; background: var(--stripe); color: #fff; text-decoration: none; border-radius: 6px; font-size: 12px; font-weight: 700; }
-    .btn-depay { padding: 8px 16px; background: var(--solana); color: #000; border: none; border-radius: 6px; font-size: 12px; font-weight: 800; cursor: pointer; }
-    main { max-width: 960px; margin: 36px auto; padding: 0 20px; flex: 1; width: 100%; }
-    .hero { text-align: center; margin-bottom: 32px; }
-    .hero h1 { font-size: 32px; font-weight: 900; margin-bottom: 8px; background: linear-gradient(135deg, #FFF, #9CA3AF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { color: var(--text-muted); font-size: 15px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-    textarea { width: 100%; min-height: 160px; background: #000; color: #10B981; font-family: var(--font-mono); border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-size: 13px; resize: vertical; margin-bottom: 14px; }
-    button.primary { padding: 10px 24px; background: var(--primary); color: #000; font-weight: 800; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }
-    .result { margin-top: 18px; padding: 14px; background: #07080C; border-radius: 8px; border: 1px solid var(--border); font-family: var(--font-mono); font-size: 12px; min-height: 80px; white-space: pre-wrap; }
-    footer { text-align: center; padding: 24px; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border); }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+      border: 1px solid var(--emerald);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 0 12px var(--emerald-glow);
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-stripe {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--stripe);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 10px rgba(99, 91, 255, 0.3);
+    }
+
+    .btn-stripe:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(99, 91, 255, 0.45);
+    }
+
+    .btn-depay {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--solana);
+      color: #051A10;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 10px rgba(20, 241, 149, 0.25);
+    }
+
+    .btn-depay:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(20, 241, 149, 0.4);
+    }
+
+    main {
+      position: relative;
+      z-index: 5;
+      max-width: 1320px;
+      margin: 28px auto;
+      padding: 0 24px;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      color: var(--cyan);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    /* Studio Grid */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 960px) {
+      .studio-grid { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-header {
+      background: var(--card-alt);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+
+    .preset-select {
+      background: #090C14;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .editor-wrapper {
+      position: relative;
+      flex: 1;
+      min-height: 420px;
+      display: flex;
+    }
+
+    .line-numbers {
+      width: 44px;
+      background: #090B10;
+      border-right: 1px solid var(--border);
+      padding: 14px 0;
+      text-align: right;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 22px;
+      user-select: none;
+      padding-right: 8px;
+    }
+
+    textarea.editor {
+      flex: 1;
+      width: 100%;
+      background: transparent;
+      color: #E2E8F0;
+      font-family: var(--mono);
+      font-size: 12.5px;
+      line-height: 22px;
+      border: none;
+      padding: 14px;
+      resize: none;
+      outline: none;
+      white-space: pre;
+      overflow-wrap: normal;
+      overflow-x: auto;
+    }
+
+    .card-toolbar {
+      background: var(--card-alt);
+      border-top: 1px solid var(--border);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: #475569;
+    }
+
+    /* Right Simulator Panel */
+    .simulator-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Score Gauge */
+    .score-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.05));
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .score-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #090B10;
+      border: 3px solid var(--emerald);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--emerald);
+      box-shadow: 0 0 14px var(--emerald-glow);
+    }
+
+    .score-info {
+      flex: 1;
+    }
+
+    .score-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .score-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Test URL Box */
+    .test-box {
+      background: #090B10;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .test-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .test-input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .test-input {
+      flex: 1;
+      background: #121622;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: #38BDF8;
+      outline: none;
+    }
+
+    .test-input:focus {
+      border-color: var(--cyan);
+    }
+
+    .btn-test {
+      background: var(--cyan);
+      color: #04141C;
+      font-weight: 800;
+      border: none;
+      border-radius: 6px;
+      padding: 0 16px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-test:hover { opacity: 0.9; }
+
+    /* Crawler Compatibility Matrix */
+    .crawler-matrix {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .crawler-row {
+      background: #090B10;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 0.15s;
+    }
+
+    .crawler-row:hover {
+      border-color: #334155;
+    }
+
+    .crawler-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .crawler-icon {
+      font-size: 18px;
+    }
+
+    .crawler-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .crawler-role {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .status-badge {
+      font-size: 11px;
+      font-family: var(--mono);
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .status-allowed {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid #10B981;
+    }
+
+    .status-blocked {
+      background: rgba(239, 68, 68, 0.15);
+      color: #F87171;
+      border: 1px solid #EF4444;
+    }
+
+    .status-reason {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--mono);
+    }
+
+    /* Pro Feature Banner */
+    .pro-banner {
+      background: linear-gradient(135deg, rgba(99, 91, 255, 0.15), rgba(168, 85, 247, 0.1));
+      border: 1px solid rgba(99, 91, 255, 0.35);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .pro-banner-text h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #E2E8F0;
+      margin-bottom: 2px;
+    }
+
+    .pro-banner-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    footer {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      padding: 28px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      background: #06070B;
+    }
+
+    footer a {
+      color: #60A5FA;
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
   <header>
-    <div class="brand">
-      <span>🛡️ RobotsTxt AI Crawler Auditor</span>
-      <span class="badge">Sovereign Web3 SaaS</span>
-    </div>
-    <div class="actions">
-      <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">💳 License ($19)</a>
-      <button class="btn-depay" onclick="if(window.DePayWidgets){DePayWidgets.Payment({integration:'428790dd-7ad1-407c-8ecf-c048c77a4cb8'})}else{alert('DePay connecting...')}">⚡ Pay with SOL</button>
+    <a href="#" class="brand">
+      <div class="brand-icon">🤖</div>
+      <div>
+        <span class="brand-title">RobotsTxt Pro</span>
+        <span class="brand-badge">RFC 9309 Parser</span>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">
+        <span>💳</span> Unlock Pro ($19)
+      </a>
+      <button class="btn-depay" onclick="launchDePay()">
+        <span>⚡</span> Pay with SOL
+      </button>
     </div>
   </header>
 
+  <!-- Main Workstation -->
   <main>
     <div class="hero">
-      <h1>RobotsTxt AI Crawler Auditor</h1>
-      <p>Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator</p>
+      <div class="hero-badge">⚡ Real-Time In-Browser AST Parser • Zero Data Leaves Your Machine</div>
+      <h1>AI Crawler & Robots.txt Studio</h1>
+      <p>Audit rule sets against Googlebot, OpenAI GPTBot, Anthropic Claude, Perplexity, and Applebot before search indexation and AI RAG pipelines crawl your site.</p>
     </div>
 
-    <div class="card">
-      <label style="display:block; font-size: 12px; font-weight: 700; margin-bottom: 8px; color: var(--text-muted);">ENTER INPUT URL OR RAW CONFIGURATION DATA:</label>
-      <textarea id="appInput" placeholder="Enter configuration data, URLs, or parameters to analyze and optimize..."></textarea>
-      <div style="display: flex; gap: 10px; align-items: center;">
-        <button class="primary" onclick="runAnalysis()">⚡ Run Instant Audit & Optimize</button>
-        <span style="font-size: 11px; color: var(--text-muted);">Direct local AST execution • Zero data leaves your machine</span>
+    <div class="studio-grid">
+      
+      <!-- Left: Editor & Presets -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>📝</span> robots.txt Editor
+          </div>
+          <select id="presetSelect" class="preset-select" onchange="loadPreset(this.value)">
+            <option value="ai-welcome">Preset: AI Welcoming (SEO + AEO)</option>
+            <option value="balanced">Preset: Balanced Security & Privacy</option>
+            <option value="saas">Preset: Modern SaaS & Private API</option>
+            <option value="strict">Preset: Strict Anti-Scraping</option>
+          </select>
+        </div>
+
+        <div class="editor-wrapper">
+          <div id="lineNumbers" class="line-numbers">1</div>
+          <textarea id="robotsInput" class="editor" spellcheck="false" oninput="onEditorChange()"></textarea>
+        </div>
+
+        <div class="card-toolbar">
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-action" onclick="copyRobotsTxt()">📋 Copy File</button>
+            <button class="btn-action" onclick="downloadRobotsTxt()">💾 Download .txt</button>
+          </div>
+          <div id="lineCountBadge" style="color: var(--text-dim); font-family: var(--mono); font-size: 11px;">
+            14 lines • UTF-8
+          </div>
+        </div>
       </div>
-      <div id="appResult" class="result">Ready. Click 'Run Instant Audit & Optimize' to evaluate.</div>
+
+      <!-- Right: Simulator & Crawler Matrix -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span>🔍</span> Real-Time Crawler Simulator
+          </div>
+          <div id="statusBadgeHeader" class="status-badge status-allowed">
+            ● 7 / 7 BOTS EVALUATED
+          </div>
+        </div>
+
+        <div class="simulator-body">
+          <!-- Crawlability Health Score -->
+          <div class="score-banner">
+            <div class="score-info">
+              <div class="score-title" id="scoreTitle">AI Crawlability Score: Optimal</div>
+              <div class="score-desc" id="scoreDesc">All major search engines & frontier LLM agents are explicitly governed.</div>
+            </div>
+            <div class="score-circle" id="scoreCircle">98</div>
+          </div>
+
+          <!-- URL Path Tester -->
+          <div class="test-box">
+            <div class="test-label">
+              <span>TEST TARGET PATH</span>
+              <span style="color: var(--cyan);">RFC 9309 Path Simulation</span>
+            </div>
+            <div class="test-input-row">
+              <input type="text" id="targetPath" class="test-input" value="/blog/autonomous-agents" oninput="runSimulation()" placeholder="/path/to/test...">
+              <button class="btn-test" onclick="runSimulation()">Evaluate</button>
+            </div>
+          </div>
+
+          <!-- Compatibility Matrix -->
+          <div class="crawler-matrix" id="crawlerMatrix">
+            <!-- Dynamic crawler rows injected here -->
+          </div>
+
+          <!-- Pro Upgrade Banner -->
+          <div class="pro-banner">
+            <div class="pro-banner-text">
+              <h3>⚡ Pro Automated Monitoring</h3>
+              <p>Get alerted via Webhook or Telegram if bots start scraping private directories or sitemap drifts.</p>
+            </div>
+            <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe" style="white-space: nowrap;">
+              $19 One-Time
+            </a>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </main>
 
   <footer>
-    <p>Engineered by Neal Frazier Tech (<a href="https://github.com/1nc0gn30/robots-txt-auditor" style="color: #60A5FA;">@1nc0gn30</a>) &middot; Sovereign Micro-SaaS &middot; <a href="https://nullai.tech" style="color: #60A5FA;">NullAI Tech</a></p>
+    <p>Engineered by Neal Frazier (<a href="https://github.com/1nc0gn30/robots-txt-auditor" target="_blank" rel="noopener">@1nc0gn30</a>) &middot; <a href="https://nealfrazier.tech" target="_blank" rel="noopener">Neal Frazier Tech</a> &middot; <a href="https://nullai.tech" target="_blank" rel="noopener">NullAI Platform</a></p>
   </footer>
 
   <script>
-    function runAnalysis() {
-      const val = document.getElementById('appInput').value.trim();
-      const res = document.getElementById('appResult');
-      res.textContent = "⚙️ Executing zero-latency AST evaluation...\n";
-      setTimeout(() => {
-        const timestamp = new Date().toISOString();
-        res.textContent = "✅ AUDIT & OPTIMIZATION COMPLETE [" + timestamp + "]\n" +
-          "─────────────────────────────────────────────────────────────\n" +
-          "• Status: PASSED (Zero syntax or security drift)\n" +
-          "• Robots.txt & AI Crawler Accessibility: 100% Verified\n" +
-          "• Schema.org WebApplication Triples: Injected\n" +
-          "• Payment Rails: Dual Stripe ($" + 19 + ") & DePay Solana Active\n" +
-          "• Input payload: " + (val ? val.length + " bytes parsed" : "Demo default validated");
-      }, 350);
+    // Presets
+    const PRESETS = {
+      'ai-welcome': `# Robots.txt — Welcoming AI Crawlers & Search Engines
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/private/
+Disallow: /checkout/
+
+# Frontier Search & AI Overview Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`,
+
+      'balanced': `# Robots.txt — Balanced Security & Indexation
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /internal/
+Disallow: /private/
+Disallow: /tmp/
+
+# Block general aggressive web scrapers
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Allow Verified Search & RAG bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+Disallow: /private/
+
+Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`,
+
+      'saas': `# Robots.txt — Modern SaaS & API Isolation
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /settings/
+Disallow: /billing/
+Disallow: /api/v*/keys/
+Disallow: /webhooks/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+Disallow: /dashboard/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /dashboard/
+
+Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`,
+
+      'strict': `# Robots.txt — Strict Anti-Scraping
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+# Explicitly Block AI Training Scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Anthropic-AI
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Allow Traditional Search
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
+    };
+
+    // Bots definition
+    const BOTS = [
+      { id: 'Googlebot', name: 'Googlebot', role: 'Google Search & SGE', icon: '🌐' },
+      { id: 'GPTBot', name: 'GPTBot', role: 'OpenAI Search & ChatGPT', icon: '🤖' },
+      { id: 'ClaudeBot', name: 'ClaudeBot', role: 'Anthropic Claude & Artifacts', icon: '🧠' },
+      { id: 'PerplexityBot', name: 'PerplexityBot', role: 'Perplexity Answer Engine', icon: '⚡' },
+      { id: 'Applebot', name: 'Applebot', role: 'Apple Intelligence & Siri', icon: '🍎' },
+      { id: 'Bingbot', name: 'Bingbot', role: 'Bing Search & Copilot', icon: '🔍' },
+      { id: 'CCBot', name: 'CCBot', role: 'Common Crawl General Scraper', icon: '🕷️' }
+    ];
+
+    function init() {
+      loadPreset('ai-welcome');
     }
+
+    function loadPreset(key) {
+      const txt = PRESETS[key] || PRESETS['ai-welcome'];
+      document.getElementById('robotsInput').value = txt;
+      onEditorChange();
+    }
+
+    function onEditorChange() {
+      updateLineNumbers();
+      runSimulation();
+    }
+
+    function updateLineNumbers() {
+      const text = document.getElementById('robotsInput').value;
+      const lines = text.split('\n');
+      const numLines = Math.max(1, lines.length);
+      let numsHtml = '';
+      for (let i = 1; i <= numLines; i++) {
+        numsHtml += i + '<br>';
+      }
+      document.getElementById('lineNumbers').innerHTML = numsHtml;
+      document.getElementById('lineCountBadge').textContent = `${numLines} lines • UTF-8`;
+    }
+
+    // RFC 9309 Real-Time Parser & Evaluator
+    function parseRobotsTxt(content) {
+      const lines = content.split('\n');
+      const groups = [];
+      let currentAgents = [];
+      let currentRules = [];
+      let sitemaps = [];
+
+      for (let i = 0; i < lines.length; i++) {
+        const rawLine = lines[i];
+        const line = rawLine.split('#')[0].trim();
+        if (!line) continue;
+
+        const colonIdx = line.indexOf(':');
+        if (colonIdx === -1) continue;
+
+        const directive = line.substring(0, colonIdx).trim().toLowerCase();
+        const value = line.substring(colonIdx + 1).trim();
+
+        if (directive === 'user-agent') {
+          if (currentRules.length > 0) {
+            groups.push({ agents: currentAgents, rules: currentRules });
+            currentAgents = [];
+            currentRules = [];
+          }
+          currentAgents.push(value.toLowerCase());
+        } else if (directive === 'allow' || directive === 'disallow') {
+          currentRules.push({
+            type: directive,
+            pattern: value,
+            lineNum: i + 1
+          });
+        } else if (directive === 'sitemap') {
+          sitemaps.push(value);
+        }
+      }
+
+      if (currentAgents.length > 0 || currentRules.length > 0) {
+        groups.push({ agents: currentAgents, rules: currentRules });
+      }
+
+      return { groups, sitemaps };
+    }
+
+    function matchRule(path, pattern) {
+      if (!pattern) return false;
+      // Convert robots.txt pattern to regex (* -> .*, $ -> $)
+      let regexStr = '^' + pattern
+        .replace(/[-\/\\^+.()|[\]{}]/g, '\\$&')
+        .replace(/\\\*/g, '.*');
+      
+      const regex = new RegExp(regexStr);
+      return regex.test(path);
+    }
+
+    function evaluateBot(botId, testPath, parsed) {
+      const botLower = botId.toLowerCase();
+
+      // Find specific group for this bot
+      let matchingGroup = parsed.groups.find(g => g.agents.includes(botLower));
+      // Fallback to wildcard group
+      if (!matchingGroup) {
+        matchingGroup = parsed.groups.find(g => g.agents.includes('*'));
+      }
+
+      if (!matchingGroup || matchingGroup.rules.length === 0) {
+        return { allowed: true, reason: 'Allowed (No explicit restriction)', lineNum: null };
+      }
+
+      // Check rules in order, longest matching pattern takes precedence (RFC 9309)
+      let bestMatch = null;
+      for (const rule of matchingGroup.rules) {
+        if (rule.pattern === '' && rule.type === 'disallow') {
+          // "Disallow: " means Allow all
+          bestMatch = { allowed: true, rule };
+          continue;
+        }
+        if (matchRule(testPath, rule.pattern)) {
+          if (!bestMatch || rule.pattern.length > bestMatch.rule.pattern.length) {
+            bestMatch = {
+              allowed: rule.type === 'allow',
+              rule
+            };
+          }
+        }
+      }
+
+      if (bestMatch) {
+        return {
+          allowed: bestMatch.allowed,
+          reason: `${bestMatch.allowed ? 'Allowed' : 'Disallowed'} by '${bestMatch.rule.type}: ${bestMatch.rule.pattern}' (line ${bestMatch.rule.lineNum})`,
+          lineNum: bestMatch.rule.lineNum
+        };
+      }
+
+      return { allowed: true, reason: 'Allowed (Default permissive match)', lineNum: null };
+    }
+
+    function runSimulation() {
+      const text = document.getElementById('robotsInput').value;
+      const testPath = document.getElementById('targetPath').value.trim() || '/';
+      const parsed = parseRobotsTxt(text);
+
+      const matrixEl = document.getElementById('crawlerMatrix');
+      matrixEl.innerHTML = '';
+
+      let allowedCount = 0;
+
+      BOTS.forEach(bot => {
+        const result = evaluateBot(bot.id, testPath, parsed);
+        if (result.allowed) allowedCount++;
+
+        const row = document.createElement('div');
+        row.className = 'crawler-row';
+        row.innerHTML = `
+          <div class="crawler-info">
+            <span class="crawler-icon">${bot.icon}</span>
+            <div>
+              <div class="crawler-name">${bot.name}</div>
+              <div class="crawler-role">${bot.role}</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <span class="status-badge ${result.allowed ? 'status-allowed' : 'status-blocked'}">
+              ${result.allowed ? '✓ ALLOWED' : '✗ BLOCKED'}
+            </span>
+            <div class="status-reason">${result.reason}</div>
+          </div>
+        `;
+        matrixEl.appendChild(row);
+      });
+
+      // Calculate Crawlability Health Score
+      calculateScore(parsed, allowedCount);
+    }
+
+    function calculateScore(parsed, allowedCount) {
+      let score = 50;
+      if (parsed.sitemaps.length > 0) score += 20;
+      if (parsed.groups.some(g => g.agents.includes('gptbot') || g.agents.includes('claudebot'))) score += 15;
+      if (parsed.groups.some(g => g.agents.includes('googlebot'))) score += 10;
+      if (allowedCount >= 5) score += 5;
+
+      score = Math.min(100, Math.max(20, score));
+
+      const circle = document.getElementById('scoreCircle');
+      const title = document.getElementById('scoreTitle');
+      const desc = document.getElementById('scoreDesc');
+
+      circle.textContent = score;
+
+      if (score >= 85) {
+        circle.style.borderColor = 'var(--emerald)';
+        circle.style.color = 'var(--emerald)';
+        title.textContent = 'AI Crawlability Score: Optimal (' + score + '/100)';
+        desc.textContent = 'Site has declared sitemaps and explicitly tuned directives for search & LLM discovery.';
+      } else if (score >= 65) {
+        circle.style.borderColor = 'var(--cyan)';
+        circle.style.color = 'var(--cyan)';
+        title.textContent = 'AI Crawlability Score: Moderate (' + score + '/100)';
+        desc.textContent = 'Good baseline, but consider adding explicit GPTBot or ClaudeBot directives.';
+      } else {
+        circle.style.borderColor = 'var(--gold)';
+        circle.style.color = 'var(--gold)';
+        title.textContent = 'AI Crawlability Score: Needs Attention (' + score + '/100)';
+        desc.textContent = 'Missing Sitemap directive or blocking essential search indexers.';
+      }
+    }
+
+    function copyRobotsTxt() {
+      const text = document.getElementById('robotsInput').value;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Robots.txt copied to clipboard!');
+      });
+    }
+
+    function downloadRobotsTxt() {
+      const text = document.getElementById('robotsInput').value;
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'robots.txt';
+      a.click();
+    }
+
+    function launchDePay() {
+      if (window.DePayWidgets && window.DePayWidgets.Payment) {
+        window.DePayWidgets.Payment({
+          integration: '428790dd-7ad1-407c-8ecf-c048c77a4cb8'
+        });
+      } else {
+        alert('DePay Solana Web3 Modal initializing...');
+      }
+    }
+
+    // Launch on load
+    window.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
