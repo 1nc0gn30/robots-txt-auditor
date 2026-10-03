@@ -1,0 +1,12 @@
+{
+  "name": "robots-txt-auditor",
+  "version": "1.0.0",
+  "description": "Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "npx serve public -p 8080",
+    "deploy": "netlify deploy --prod --dir=public"
+  },
+  "author": "Neal Frazier (1nc0gn30)",
+  "license": "MIT"
+}
