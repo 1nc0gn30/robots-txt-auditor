@@ -1,0 +1,11 @@
+# Autonomous AI Agent Discovery & Crawling Policy (ai.txt)
+software-name: RobotsTxt AI Crawler Auditor
+publisher: Neal Frazier Tech (@1nc0gn30)
+platform: NullAI Platform
+ai-crawling: allowed
+ai-grounding: allowed
+ai-search-index: allowed
+sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml
+robots-txt: https://robots-txt-auditor.netlify.app/robots.txt
+netlify-ax-api: https://robots-txt-auditor.netlify.app/api/netlify-ax.json
+netlify-mcp-api: https://robots-txt-auditor.netlify.app/api/netlify-ax-mcp.json
