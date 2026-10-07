@@ -22,6 +22,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://robots-txt-auditor.netlify.app/#app",
+        "name": "RobotsTxt Pro Studio",
+        "url": "https://robots-txt-auditor.netlify.app/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "description": "Production-grade robots.txt syntax validator, AI crawler simulator, and search engine readiness suite.",
+        "creator": {
+          "@type": "Person",
+          "name": "Neal Frazier",
+          "url": "https://nealfrazier.tech",
+          "sameAs": "https://github.com/1nc0gn30"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://robots-txt-auditor.netlify.app/privacy.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does robots-txt-auditor collect or transmit user data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All audits and regex validations run locally in the browser memory. Zero analytics cookies, zero backend database telemetry."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are robots.txt files saved on a server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Never. All parsing runs client-side in the user's browser sandbox."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #07090E;
@@ -142,6 +194,9 @@
     }
     .footer-links a:hover { color: #fff; }
     @media (max-width: 768px) {
+      header { padding: 0.75rem 1rem; }
+      .header-inner { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; gap: 0.4rem; }
       .page-title { font-size: 1.85rem; }
       .legal-card { padding: 1.25rem; }
       .footer-inner { flex-direction: column; text-align: center; }

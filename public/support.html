@@ -22,6 +22,66 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://robots-txt-auditor.netlify.app/#app",
+        "name": "RobotsTxt Pro Studio",
+        "url": "https://robots-txt-auditor.netlify.app/",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "All",
+        "description": "Production-grade robots.txt syntax validator, AI crawler simulator, and search engine readiness suite.",
+        "creator": {
+          "@type": "Person",
+          "name": "Neal Frazier",
+          "url": "https://nealfrazier.tech",
+          "sameAs": "https://github.com/1nc0gn30"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "19.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://robots-txt-auditor.netlify.app/support.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does license activation work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Upon checkout via Stripe or Solana DePay, your Pro license key is delivered instantly and saved locally in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the refund policy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer an unconditional 30-day money-back guarantee. Email neal@nealfrazier.tech with your receipt for a 100% full refund within 24 to 48 hours."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does robots-txt-auditor transmit my code or data to external servers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. 100% of data parsing and code generation takes place client-side in your browser sandbox. We do not store or transmit your code, secrets, or configurations."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     
     :root {
@@ -143,6 +203,9 @@
     }
     .footer-links a:hover { color: #fff; }
     @media (max-width: 768px) {
+      header { padding: 0.75rem 1rem; }
+      .header-inner { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+      .nav-links { flex-wrap: wrap; gap: 0.4rem; }
       .page-title { font-size: 1.85rem; }
       .legal-card { padding: 1.25rem; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -196,42 +259,6 @@
     }
   </style>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does the $19 founding member lifetime license work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Founding members receive lifetime access to all Pro features with no recurring subscriptions. 1-click activation unlocks all export rails and features permanently in your browser."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I request a refund?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Email neal@nealfrazier.tech with your receipt or checkout email for an unconditional 100% refund within 30 days of purchase."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is my data stored or sent to remote servers?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Zero data is sent to cloud servers. All transformations, calculations, and AST processing execute 100% locally in your web browser."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
   <div class="aurora-container">
