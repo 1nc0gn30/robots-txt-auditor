@@ -50,7 +50,7 @@
           "price": "19.00",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": "https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J"
+          "url": "https://buy.stripe.com/7sI7sA8hM2X8eFG8ww"
         }
       },
       {
@@ -195,6 +195,24 @@
       border: 1px solid var(--emerald);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--text);
     }
 
     .header-actions {
@@ -560,23 +578,39 @@
     }
 
     .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       font-size: 11px;
       font-family: var(--mono);
       font-weight: 700;
+      letter-spacing: 0.04em;
+      font-feature-settings: "tnum" 1;
       padding: 3px 8px;
       border-radius: 4px;
+      line-height: 1.3;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
 
     .status-allowed {
-      background: rgba(16, 185, 129, 0.15);
+      background: rgba(16, 185, 129, 0.12);
       color: #34D399;
-      border: 1px solid #10B981;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.1);
+    }
+
+    .status-warning {
+      background: rgba(245, 158, 11, 0.12);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.1);
     }
 
     .status-blocked {
-      background: rgba(239, 68, 68, 0.15);
+      background: rgba(239, 68, 68, 0.12);
       color: #F87171;
-      border: 1px solid #EF4444;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.1);
     }
 
     .status-reason {
@@ -841,6 +875,11 @@
         align-items: flex-start;
         gap: 12px;
       }
+      .header-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
       .header-actions {
         width: 100%;
         display: flex;
@@ -912,13 +951,19 @@
 
   <!-- Header -->
   <header>
-    <a href="#" class="brand">
+    <a href="/" class="brand">
       <div class="brand-icon">🤖</div>
       <div>
         <span class="brand-title">RobotsTxt Pro</span>
         <span class="brand-badge">RFC 9309 Parser</span>
       </div>
     </a>
+    <nav class="header-nav">
+      <a href="/terms.html" class="nav-link">Terms</a>
+      <a href="/privacy.html" class="nav-link">Privacy</a>
+      <a href="/support.html" class="nav-link">Support</a>
+      <a href="/cities/norfolk-va/agencies/" class="nav-link">Norfolk Agency Audit</a>
+    </nav>
     <div class="header-actions">
       <div id="headerProContainer" style="display: inline-flex;">
         <button class="btn-stripe" onclick="openPaywallModal()">
@@ -947,7 +992,7 @@
             <strong class="funnel-price">$19</strong>
           </div>
           <div class="funnel-buttons">
-            <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19)</a>
+            <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19)</a>
             <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
           </div>
           <button type="button" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter License Key / Email 🔑</button>
@@ -969,7 +1014,7 @@
           <div class="card-title">
             <span>📝</span> robots.txt Editor
           </div>
-          <select id="presetSelect" class="preset-select" onchange="loadPreset(this.value)">
+          <select id="presetSelect" class="preset-select" aria-label="Select robots.txt preset" onchange="loadPreset(this.value)">
             <option value="ai-welcome">Preset: AI Welcoming (SEO + AEO)</option>
             <option value="balanced">Preset: Balanced Security & Privacy</option>
             <option value="saas">Preset: Modern SaaS & Private API</option>
@@ -979,7 +1024,7 @@
 
         <div class="editor-wrapper" style="position: relative;">
           <div id="lineNumbers" class="line-numbers">1</div>
-          <textarea id="robotsInput" class="editor" spellcheck="false" oninput="onEditorChange()"></textarea>
+          <textarea id="robotsInput" class="editor" spellcheck="false" aria-label="robots.txt content editor" oninput="onEditorChange()"></textarea>
 
           <!-- Output Paywall Lock Overlay -->
           <div id="outputPaywallOverlay" class="output-paywall-overlay" style="display: none;">
@@ -988,7 +1033,7 @@
             <h3 class="paywall-lock-title">Unlock Full AST Export & Drift Alerts</h3>
             <p class="paywall-lock-desc">Exporting unthrottled RFC 9309 rulesets and activating automated crawler drift alerts is reserved for Pro license holders.</p>
             <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
-              <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19 Lifetime)</a>
+              <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19 Lifetime)</a>
               <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
             </div>
             <button type="button" class="btn-key-activate" onclick="openLicenseModal()" style="margin-top: 10px;">Already purchased? Enter key 🔑</button>
@@ -997,7 +1042,7 @@
 
         <div class="card-toolbar">
           <div style="display: flex; gap: 8px;">
-            <button class="btn-action" onclick="copyRobotsTxt()">📋 Copy File</button>
+            <button id="btnCopyRobots" class="btn-action" onclick="copyRobotsTxt()">📋 Copy File</button>
             <button class="btn-action" onclick="downloadRobotsTxt()">💾 Download .txt</button>
           </div>
           <div id="lineCountBadge" style="color: var(--text-dim); font-family: var(--mono); font-size: 11px;">
@@ -1013,7 +1058,7 @@
             <span>🔍</span> Real-Time Crawler Simulator
           </div>
           <div id="statusBadgeHeader" class="status-badge status-allowed">
-            ● 7 / 7 BOTS EVALUATED
+            ● 7 / 7 BOTS ALLOWED
           </div>
         </div>
 
@@ -1030,12 +1075,12 @@
           <!-- URL Path Tester -->
           <div class="test-box">
             <div class="test-label">
-              <span>TEST TARGET PATH</span>
+              <label for="targetPath">TEST TARGET PATH</label>
               <span style="color: var(--cyan);">RFC 9309 Path Simulation</span>
             </div>
             <div class="test-input-row">
-              <input type="text" id="targetPath" class="test-input" value="/blog/autonomous-agents" oninput="runSimulation()" placeholder="/path/to/test...">
-              <button class="btn-test" onclick="runSimulation()">Evaluate</button>
+              <input type="text" id="targetPath" class="test-input" value="/blog/autonomous-agents" oninput="runSimulation()" onkeydown="if(event.key==='Enter') runSimulation()" placeholder="/path/to/test..." aria-label="URL path to evaluate against crawler directives">
+              <button type="button" class="btn-test" onclick="runSimulation()">Evaluate</button>
             </div>
           </div>
 
@@ -1050,7 +1095,7 @@
               <h3>⚡ Pro Automated Monitoring</h3>
               <p>Get alerted via Webhook or Telegram if bots start scraping private directories or sitemap drifts.</p>
             </div>
-            <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe" style="white-space: nowrap;">
+            <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener" class="btn-stripe" style="white-space: nowrap;">
               $19 One-Time
             </a>
           </div>
@@ -1061,9 +1106,71 @@
     </div>
   </main>
 
+  <footer>
+    <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div>Engineered by Neal Frazier Tech (<a href="https://github.com/1nc0gn30" target="_blank" rel="noopener">@1nc0gn30</a>) • NullAI Platform</div>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="/">Workspace</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/support.html">Support</a>
+        <a href="/cities/norfolk-va/agencies/">Norfolk Agency Audit</a>
+        <a href="https://github.com/1nc0gn30/robots-txt-auditor" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
 
+  <!-- Pro Paywall Modal -->
+  <div id="proPaywallModal" class="modal-overlay" onclick="if(event.target === this) closePaywallModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">⚡ Unlock RobotsTxt Pro</h3>
+        <button type="button" class="modal-close" aria-label="Close modal" onclick="closePaywallModal()">✕</button>
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted);">One-time payment of <strong>$19</strong>. Lifetime access. Zero subscriptions.</p>
+      
+      <ul class="value-checkpoints">
+        <li><span>✓</span> 100% In-Browser RFC 9309 AST Parser</li>
+        <li><span>✓</span> Automated Daily Crawler Drift & Violation Alerts</li>
+        <li><span>✓</span> Full Rule Set Export & CI/CD Sitemap Syncer</li>
+        <li><span>✓</span> Frontier AI Agent Coverage (Googlebot, GPTBot, ClaudeBot, Perplexity)</li>
+        <li><span>✓</span> Unlimited Path Testing & Regex Directives</li>
+        <li><span>✓</span> Lifetime Commercial License & Free Updates</li>
+      </ul>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; margin: 16px 0;">
+        <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener" class="btn-stripe" style="justify-content: center; padding: 12px; font-size: 14px;">
+          💳 Unlock with Card / Apple Pay ($19)
+        </a>
+        <button type="button" class="btn-depay" onclick="launchDePay()" style="justify-content: center; padding: 12px; font-size: 14px;">
+          ⚡ Unlock with Crypto (Solana SOL / USDC)
+        </button>
+      </div>
+
+      <button type="button" class="btn-key-activate" onclick="openLicenseModal()" style="width: 100%; text-align: center;">
+        Already purchased? Activate with License Key / Email 🔑
+      </button>
+    </div>
+  </div>
+
+  <!-- License Key Activation Modal -->
+  <div id="licenseModal" class="modal-overlay" onclick="if(event.target === this) closeLicenseModal()">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🔑 Activate Pro License</h3>
+        <button type="button" class="modal-close" aria-label="Close license modal" onclick="closeLicenseModal()">✕</button>
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Enter your Stripe receipt email or license key:</p>
+      <input type="text" id="licenseKeyInput" placeholder="name@example.com or PRO-KEY" class="test-input" style="width: 100%; margin-bottom: 12px; color: #fff;" aria-label="Stripe receipt email or license key" onkeydown="if(event.key==='Enter') activateLicenseSubmit()">
+      <button type="button" onclick="activateLicenseSubmit()" class="btn-stripe" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px;">
+        ⚡ Activate Lifetime License
+      </button>
+    </div>
+  </div>
 
   <script>
+    let isProLicensed = false;
+
     // Presets
     const PRESETS = {
       'ai-welcome': `# Robots.txt — Welcoming AI Crawlers & Search Engines
@@ -1188,7 +1295,12 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
     }
 
     function loadPreset(key) {
-      const txt = PRESETS[key] || PRESETS['ai-welcome'];
+      const presetKey = PRESETS[key] ? key : 'ai-welcome';
+      const txt = PRESETS[presetKey];
+      const selectEl = document.getElementById('presetSelect');
+      if (selectEl && selectEl.value !== presetKey) {
+        selectEl.value = presetKey;
+      }
       document.getElementById('robotsInput').value = txt;
       onEditorChange();
     }
@@ -1256,51 +1368,92 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
 
     function matchRule(path, pattern) {
       if (!pattern) return false;
-      // Convert robots.txt pattern to regex (* -> .*, $ -> $)
-      let regexStr = '^' + pattern
-        .replace(/[-\/\\^+.()|[\]{}]/g, '\\$&')
-        .replace(/\\\*/g, '.*');
-      
-      const regex = new RegExp(regexStr);
-      return regex.test(path);
+      let target = path;
+      if (!target.startsWith('/')) {
+        try {
+          const u = new URL(target);
+          target = u.pathname + (u.search || '');
+        } catch {
+          target = '/' + target;
+        }
+      }
+
+      let hasEndAnchor = pattern.endsWith('$');
+      let cleanPattern = hasEndAnchor ? pattern.slice(0, -1) : pattern;
+
+      let regexStr = '^' + cleanPattern
+        .replace(/[.+?^${}()|[\]\\\/]/g, '\\$&')
+        .replace(/\*/g, '.*');
+
+      if (hasEndAnchor) {
+        regexStr += '$';
+      }
+
+      try {
+        const regex = new RegExp(regexStr);
+        return regex.test(target);
+      } catch {
+        return target.startsWith(cleanPattern);
+      }
     }
 
     function evaluateBot(botId, testPath, parsed) {
       const botLower = botId.toLowerCase();
 
-      // Find specific group for this bot
-      let matchingGroup = parsed.groups.find(g => g.agents.includes(botLower));
-      // Fallback to wildcard group
-      if (!matchingGroup) {
-        matchingGroup = parsed.groups.find(g => g.agents.includes('*'));
+      // RFC 9309 Section 2.2.1: Group rules by user-agent.
+      // If a bot matches multiple specific groups across the file, rules merge.
+      // If no specific group matches, fall back to all wildcard (*) groups.
+      let matchingGroups = parsed.groups.filter(g => g.agents.includes(botLower));
+      if (matchingGroups.length === 0) {
+        matchingGroups = parsed.groups.filter(g => g.agents.includes('*'));
       }
 
-      if (!matchingGroup || matchingGroup.rules.length === 0) {
+      const allRules = matchingGroups.flatMap(g => g.rules);
+      if (allRules.length === 0) {
         return { allowed: true, reason: 'Allowed (No explicit restriction)', lineNum: null };
       }
 
-      // Check rules in order, longest matching pattern takes precedence (RFC 9309)
-      let bestMatch = null;
-      for (const rule of matchingGroup.rules) {
-        if (rule.pattern === '' && rule.type === 'disallow') {
-          // "Disallow: " means Allow all
-          bestMatch = { allowed: true, rule };
+      // RFC 9309 Section 2.2.2:
+      // The most specific (longest match) rule applies.
+      // If an Allow and Disallow pattern match with equal length, Allow takes precedence.
+      const matchingCandidates = [];
+      for (const rule of allRules) {
+        if (rule.pattern === '') {
+          if (rule.type === 'disallow') {
+            // RFC 9309: "Disallow: " denotes allow all (pattern length 0)
+            matchingCandidates.push({
+              allowed: true,
+              rule,
+              patternLen: 0,
+              typePriority: 1
+            });
+          }
+          // Empty "Allow: " has no effect per RFC 9309
           continue;
         }
         if (matchRule(testPath, rule.pattern)) {
-          if (!bestMatch || rule.pattern.length > bestMatch.rule.pattern.length) {
-            bestMatch = {
-              allowed: rule.type === 'allow',
-              rule
-            };
-          }
+          matchingCandidates.push({
+            allowed: rule.type === 'allow',
+            rule,
+            patternLen: rule.pattern.length,
+            typePriority: rule.type === 'allow' ? 1 : 0
+          });
         }
       }
 
-      if (bestMatch) {
+      if (matchingCandidates.length > 0) {
+        matchingCandidates.sort((a, b) => {
+          if (b.patternLen !== a.patternLen) return b.patternLen - a.patternLen;
+          return b.typePriority - a.typePriority;
+        });
+
+        const bestMatch = matchingCandidates[0];
+        const reasonText = (bestMatch.rule.pattern === '' && bestMatch.rule.type === 'disallow')
+          ? `Allowed by empty 'Disallow:' (line ${bestMatch.rule.lineNum})`
+          : `${bestMatch.allowed ? 'Allowed' : 'Disallowed'} by '${bestMatch.rule.type}: ${bestMatch.rule.pattern}' (line ${bestMatch.rule.lineNum})`;
         return {
           allowed: bestMatch.allowed,
-          reason: `${bestMatch.allowed ? 'Allowed' : 'Disallowed'} by '${bestMatch.rule.type}: ${bestMatch.rule.pattern}' (line ${bestMatch.rule.lineNum})`,
+          reason: reasonText,
           lineNum: bestMatch.rule.lineNum
         };
       }
@@ -1324,23 +1477,61 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
 
         const row = document.createElement('div');
         row.className = 'crawler-row';
-        row.innerHTML = `
-          <div class="crawler-info">
-            <span class="crawler-icon">${bot.icon}</span>
-            <div>
-              <div class="crawler-name">${bot.name}</div>
-              <div class="crawler-role">${bot.role}</div>
-            </div>
-          </div>
-          <div style="text-align: right;">
-            <span class="status-badge ${result.allowed ? 'status-allowed' : 'status-blocked'}">
-              ${result.allowed ? '✓ ALLOWED' : '✗ BLOCKED'}
-            </span>
-            <div class="status-reason">${result.reason}</div>
-          </div>
-        `;
+
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'crawler-info';
+
+        const iconSpan = document.createElement('span');
+        iconSpan.className = 'crawler-icon';
+        iconSpan.setAttribute('aria-hidden', 'true');
+        iconSpan.textContent = bot.icon;
+
+        const textDiv = document.createElement('div');
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'crawler-name';
+        nameDiv.textContent = bot.name;
+
+        const roleDiv = document.createElement('div');
+        roleDiv.className = 'crawler-role';
+        roleDiv.textContent = bot.role;
+
+        textDiv.appendChild(nameDiv);
+        textDiv.appendChild(roleDiv);
+        infoDiv.appendChild(iconSpan);
+        infoDiv.appendChild(textDiv);
+
+        const statusDiv = document.createElement('div');
+        statusDiv.style.textAlign = 'right';
+
+        const badgeSpan = document.createElement('span');
+        badgeSpan.className = `status-badge ${result.allowed ? 'status-allowed' : 'status-blocked'}`;
+        badgeSpan.textContent = result.allowed ? '✓ ALLOWED' : '✗ BLOCKED';
+
+        const reasonDiv = document.createElement('div');
+        reasonDiv.className = 'status-reason';
+        reasonDiv.textContent = result.reason;
+
+        statusDiv.appendChild(badgeSpan);
+        statusDiv.appendChild(reasonDiv);
+
+        row.appendChild(infoDiv);
+        row.appendChild(statusDiv);
         matrixEl.appendChild(row);
       });
+
+      // Update Header Status Badge
+      const statusBadge = document.getElementById('statusBadgeHeader');
+      if (statusBadge) {
+        statusBadge.textContent = `● ${allowedCount} / ${BOTS.length} BOTS ALLOWED`;
+        statusBadge.removeAttribute('style');
+        if (allowedCount === BOTS.length) {
+          statusBadge.className = 'status-badge status-allowed';
+        } else if (allowedCount === 0) {
+          statusBadge.className = 'status-badge status-blocked';
+        } else {
+          statusBadge.className = 'status-badge status-warning';
+        }
+      }
 
       // Calculate Crawlability Health Score
       calculateScore(parsed, allowedCount);
@@ -1378,71 +1569,6 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
         desc.textContent = 'Missing Sitemap directive or blocking essential search indexers.';
       }
     }
-  </script>
-
-  <!-- Pro Paywall Modal -->
-  <div id="proPaywallModal" class="modal-overlay">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 class="modal-title">⚡ Unlock RobotsTxt Pro</h3>
-        <button type="button" class="modal-close" onclick="closePaywallModal()">✕</button>
-      </div>
-      <p style="font-size: 13px; color: var(--text-muted);">One-time payment of <strong>$19</strong>. Lifetime access. Zero subscriptions.</p>
-      
-      <ul class="value-checkpoints">
-        <li><span>✓</span> 100% In-Browser RFC 9309 AST Parser</li>
-        <li><span>✓</span> Automated Daily Crawler Drift & Violation Alerts</li>
-        <li><span>✓</span> Full Rule Set Export & CI/CD Sitemap Syncer</li>
-        <li><span>✓</span> Frontier AI Agent Coverage (Googlebot, GPTBot, ClaudeBot, Perplexity)</li>
-        <li><span>✓</span> Unlimited Path Testing & Regex Directives</li>
-        <li><span>✓</span> Lifetime Commercial License & Free Updates</li>
-      </ul>
-
-      <div style="display: flex; flex-direction: column; gap: 8px; margin: 16px 0;">
-        <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe" style="justify-content: center; padding: 12px; font-size: 14px;">
-          💳 Unlock with Card / Apple Pay ($19)
-        </a>
-        <button type="button" class="btn-depay" onclick="launchDePay()" style="justify-content: center; padding: 12px; font-size: 14px;">
-          ⚡ Unlock with Crypto (Solana SOL / USDC)
-        </button>
-      </div>
-
-      <button type="button" class="btn-key-activate" onclick="openLicenseModal()" style="width: 100%; text-align: center;">
-        Already purchased? Activate with License Key / Email 🔑
-      </button>
-    </div>
-  </div>
-
-  <!-- License Key Activation Modal -->
-  <div id="licenseModal" class="modal-overlay">
-    <div class="modal-card" style="max-width: 440px;">
-      <div class="modal-header">
-        <h3 class="modal-title">🔑 Activate Pro License</h3>
-        <button type="button" class="modal-close" onclick="closeLicenseModal()">✕</button>
-      </div>
-      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Enter your Stripe receipt email or license key:</p>
-      <input type="text" id="licenseKeyInput" placeholder="name@example.com or PRO-KEY" class="test-input" style="width: 100%; margin-bottom: 12px; color: #fff;">
-      <button type="button" onclick="activateLicenseSubmit()" class="btn-stripe" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px;">
-        ⚡ Activate Lifetime License
-      </button>
-    </div>
-  </div>
-
-  <footer>
-    <div style="max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;">
-      <p style="margin: 0;">Engineered by Neal Frazier (<a href="https://github.com/1nc0gn30/robots-txt-auditor" target="_blank" rel="noopener">@1nc0gn30</a>) &middot; <a href="https://nealfrazier.tech" target="_blank" rel="noopener">Neal Frazier Tech</a> &middot; <a href="https://nullai.tech" target="_blank" rel="noopener">NullAI Platform</a></p>
-      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <a href="/terms.html">Terms</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/support.html">Support</a>
-        <a href="/cities/norfolk-va/agencies/">Norfolk Agency Audit</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Licensing State
-    let isProLicensed = false;
 
     function checkProLicense() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -1450,7 +1576,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
         activateProLicense('STRIPE-CHECKOUT');
         return;
       }
-      if (localStorage.getItem('pro_licensed') === 'true') {
+      if (localStorage.getItem('pro_licensed') === 'true' || localStorage.getItem('robots-txt-auditor_pro_licensed') === 'true') {
         isProLicensed = true;
         updateProUI();
       }
@@ -1477,6 +1603,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
     function activateProLicense(key) {
       isProLicensed = true;
       localStorage.setItem('pro_licensed', 'true');
+      localStorage.setItem('robots-txt-auditor_pro_licensed', 'true');
       updateProUI();
       closeLicenseModal();
       closePaywallModal();
@@ -1515,9 +1642,42 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
         return;
       }
       const text = document.getElementById('robotsInput').value;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Robots.txt copied to clipboard!');
-      });
+      const copyBtn = document.getElementById('btnCopyRobots');
+      const origText = copyBtn ? copyBtn.innerHTML : '📋 Copy File';
+
+      const showSuccess = () => {
+        if (copyBtn) {
+          copyBtn.innerHTML = '✓ Copied!';
+          setTimeout(() => { copyBtn.innerHTML = origText; }, 2000);
+        }
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showSuccess).catch(() => {
+          fallbackCopy(text, showSuccess);
+        });
+      } else {
+        fallbackCopy(text, showSuccess);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      try {
+        ta.select();
+        document.execCommand('copy');
+        if (cb) cb();
+      } catch (e) {
+        alert('Failed to copy. Please manually copy the robots.txt content.');
+      } finally {
+        if (document.body.contains(ta)) {
+          document.body.removeChild(ta);
+        }
+      }
     }
 
     function downloadRobotsTxt() {
@@ -1530,7 +1690,12 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
       a.download = 'robots.txt';
+      document.body.appendChild(a);
       a.click();
+      setTimeout(() => {
+        URL.revokeObjectURL(a.href);
+        a.remove();
+      }, 100);
     }
 
     function launchDePay() {
@@ -1539,7 +1704,20 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
           integration: '428790dd-7ad1-407c-8ecf-c048c77a4cb8'
         });
       } else {
-        alert('DePay Solana Web3 Modal initializing...');
+        const script = document.createElement('script');
+        script.src = 'https://integrate.depay.com/widgets/v13.js';
+        script.defer = true;
+        script.onload = () => {
+          if (window.DePayWidgets && window.DePayWidgets.Payment) {
+            window.DePayWidgets.Payment({
+              integration: '428790dd-7ad1-407c-8ecf-c048c77a4cb8'
+            });
+          }
+        };
+        script.onerror = () => {
+          alert('Solana payment receiver: GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK (Send 0.09 SOL to activate Pro)');
+        };
+        document.head.appendChild(script);
       }
     }
 
@@ -1547,6 +1725,14 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
     window.addEventListener('DOMContentLoaded', () => {
       init();
       checkProLicense();
+    });
+
+    // Close modals on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closePaywallModal();
+        closeLicenseModal();
+      }
     });
   </script>
 </body>
