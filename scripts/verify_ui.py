@@ -14,7 +14,7 @@ from playwright.sync_api import sync_playwright
 SHOT_DIR = Path('/home/zoth/.gemini/antigravity-cli/brain/302ed169-2fc4-4fe5-98e4-ebd229505405/pod_shots/robots_txt_auditor')
 SHOT_DIR.mkdir(parents=True, exist_ok=True)
 
-PORT = 8870
+PORT = 8884
 BASE_URL = f"http://127.0.0.1:{PORT}"
 
 def verify():

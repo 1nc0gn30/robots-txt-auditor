@@ -1700,12 +1700,18 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
     function openLicenseModal() {
       closePaywallModal();
       const m = document.getElementById('licenseModal');
-      if (m) m.style.display = 'flex';
+      if (m) {
+        m.style.display = 'flex';
+        m.classList.add('open');
+      }
     }
 
     function closeLicenseModal() {
       const m = document.getElementById('licenseModal');
-      if (m) m.style.display = 'none';
+      if (m) {
+        m.style.display = 'none';
+        m.classList.remove('open');
+      }
     }
 
     function activateLicenseSubmit(customKey) {
