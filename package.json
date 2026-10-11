@@ -5,6 +5,7 @@
   "main": "public/index.html",
   "scripts": {
     "start": "npx serve public -p 8080",
+    "test:guardrail": "node test_guardrail.mjs",
     "deploy": "netlify deploy --prod --dir=public"
   },
   "author": "Neal Frazier (1nc0gn30)",

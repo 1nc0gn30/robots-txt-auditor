@@ -9,6 +9,7 @@
   <meta name="author" content="Neal Frazier">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://robots-txt-auditor.netlify.app/">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <!-- OpenGraph -->
   <meta property="og:title" content="RobotsTxt Pro — AI Crawler & Search Readiness Studio">
@@ -1036,14 +1037,18 @@
               <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19 Lifetime)</a>
               <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
             </div>
-            <button type="button" class="btn-key-activate" onclick="openLicenseModal()" style="margin-top: 10px;">Already purchased? Enter key 🔑</button>
+            <div style="display: flex; gap: 12px; align-items: center; margin-top: 10px; justify-content: center;">
+              <button type="button" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter key 🔑</button>
+              <button type="button" class="btn-key-activate" onclick="toggleAstDriftShield()" style="color: var(--text-dim); text-decoration: underline;">✕ Dismiss</button>
+            </div>
           </div>
         </div>
 
         <div class="card-toolbar">
-          <div style="display: flex; gap: 8px;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
             <button id="btnCopyRobots" class="btn-action" onclick="copyRobotsTxt()">📋 Copy File</button>
             <button class="btn-action" onclick="downloadRobotsTxt()">💾 Download .txt</button>
+            <button id="btnAstDrift" class="btn-action" onclick="toggleAstDriftShield()">🛡️ Pro Drift Shield</button>
           </div>
           <div id="lineCountBadge" style="color: var(--text-dim); font-family: var(--mono); font-size: 11px;">
             14 lines • UTF-8
@@ -1634,6 +1639,20 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       }
       activateProLicense(key);
       alert('License successfully activated! All Pro features unlocked.');
+    }
+
+    function toggleAstDriftShield() {
+      if (isProLicensed) {
+        alert('🛡️ Pro Drift Shield Active: 100% RFC 9309 rulesets unthrottled and crawler monitoring enabled.');
+        return;
+      }
+      const overlay = document.getElementById('outputPaywallOverlay');
+      const editor = document.getElementById('robotsInput');
+      if (overlay) {
+        const isHidden = overlay.style.display === 'none';
+        overlay.style.display = isHidden ? 'flex' : 'none';
+        if (editor) editor.style.filter = isHidden ? 'blur(6px)' : 'none';
+      }
     }
 
     function copyRobotsTxt() {

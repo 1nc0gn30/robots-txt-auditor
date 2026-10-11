@@ -95,8 +95,12 @@ server.listen(PORT, async () => {
     const send = (method, params = {}) => new Promise((r) => {
       const id = ++seq; pending.set(id, r); ws.send(JSON.stringify({ id, method, params }));
     });
-    const evaluate = async (expression) =>
-      (await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true })).result?.result?.value;
+    const evaluate = async (expression) => {
+      const resp = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
+      if (resp.error) console.error('evaluate error:', resp.error);
+      if (resp.result?.exceptionDetails) console.error('evaluate exception:', resp.result.exceptionDetails);
+      return resp.result?.result?.value;
+    };
 
     await send('Runtime.enable');
     await send('Page.enable');
@@ -128,22 +132,51 @@ server.listen(PORT, async () => {
           mobile: vp.mobile
         });
         errors = [];
-        await send('Page.navigate', { url: `http://127.0.0.1:${PORT}${route}` });
-        await sleep(1000);
+        await Promise.all([
+          new Promise((resolve) => {
+            const onMsg = (e) => {
+              const m = JSON.parse(e.data);
+              if (m.method === 'Page.loadEventFired') {
+                ws.removeEventListener('message', onMsg);
+                resolve();
+              }
+            };
+            ws.addEventListener('message', onMsg);
+            // Fallback timeout in case event already fired
+            setTimeout(resolve, 2000);
+          }),
+          send('Page.navigate', { url: `http://127.0.0.1:${PORT}${route}` })
+        ]);
+        await sleep(500);
 
-        const metrics = await evaluate(`({
-          scrollWidth: document.documentElement.scrollWidth,
-          clientWidth: document.documentElement.clientWidth,
-          bodyScrollWidth: document.body.scrollWidth,
-          bodyClientWidth: document.body.clientWidth,
-          overflowPx: Math.max(
-            document.documentElement.scrollWidth - document.documentElement.clientWidth,
-            document.body.scrollWidth - document.body.clientWidth
-          ),
-          imgsMissingAlt: [...document.images].filter(i => !i.hasAttribute('alt') || !i.alt.trim()).length,
-          buttons: document.querySelectorAll('button, [role=button], a[href]').length,
-          textLength: (document.body.innerText || '').trim().length
-        })`);
+        const metrics = await evaluate(`(() => {
+          if (!document.documentElement || !document.body) {
+            return {
+              scrollWidth: 0,
+              clientWidth: 0,
+              bodyScrollWidth: 0,
+              bodyClientWidth: 0,
+              overflowPx: 0,
+              imgsMissingAlt: 0,
+              buttons: 0,
+              textLength: 0
+            };
+          }
+          return {
+            scrollWidth: document.documentElement.scrollWidth,
+            clientWidth: document.documentElement.clientWidth,
+            bodyScrollWidth: document.body.scrollWidth,
+            bodyClientWidth: document.body.clientWidth,
+            overflowPx: Math.max(
+              document.documentElement.scrollWidth - document.documentElement.clientWidth,
+              document.body.scrollWidth - document.body.clientWidth
+            ),
+            imgsMissingAlt: [...document.images].filter(i => !i.hasAttribute('alt') || !i.alt.trim()).length,
+            buttons: document.querySelectorAll('button, [role=button], a[href]').length,
+            textLength: (document.body.innerText || '').trim().length
+          };
+        })()`);
+
 
         const isOverflow = metrics.overflowPx > 0;
         console.log(`  [${vp.name} ${vp.width}x${vp.height}] overflow: ${metrics.overflowPx}px | buttons: ${metrics.buttons} | text: ${metrics.textLength} | missingAlt: ${metrics.imgsMissingAlt}`);

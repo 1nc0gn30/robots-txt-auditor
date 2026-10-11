@@ -4,5 +4,6 @@
 - [Terms of Service]: https://robots-txt-auditor.netlify.app/terms.html
 - [Privacy Policy]: https://robots-txt-auditor.netlify.app/privacy.html
 - [Support & FAQ]: https://robots-txt-auditor.netlify.app/support.html
+- [City Desk Norfolk Agencies]: https://robots-txt-auditor.netlify.app/cities/norfolk-va/agencies/
 - [Netlify AX API]: https://robots-txt-auditor.netlify.app/api/netlify-ax.json
 - [Netlify MCP API]: https://robots-txt-auditor.netlify.app/api/netlify-ax-mcp.json

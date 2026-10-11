@@ -1,14 +1,33 @@
-# RobotsTxt AI Crawler Auditor
+# 🤖 RobotsTxt Pro & AI Crawler Readiness Auditor (`robots-txt-auditor`)
 
-> Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator
+[![Live Demo](https://img.shields.io/badge/Live%20App-robots--txt--auditor.netlify.app-00DC82?style=flat&logo=netlify)](https://robots-txt-auditor.netlify.app)
+[![License: Pro](https://img.shields.io/badge/Pro%20Lifetime-$19%20USD-635BFF?style=flat&logo=stripe)](https://buy.stripe.com/7sI7sA8hM2X8eFG8ww)
+[![Solana Pay](https://img.shields.io/badge/Solana-DePay%20Accepted-14F195?style=flat&logo=solana)](https://robots-txt-auditor.netlify.app)
+[![CI Matrix](https://github.com/1nc0gn30/robots-txt-auditor/actions/workflows/ci.yml/badge.svg)](https://github.com/1nc0gn30/robots-txt-auditor)
 
-**Created by Neal Frazier (@1nc0gn30 / Neal Frazier Tech)**
-**Live App**: [https://robots-txt-auditor.netlify.app](https://robots-txt-auditor.netlify.app)
+**RobotsTxt Pro Studio** is an enterprise-grade, 100% in-browser RFC 9309 robots.txt parser, AI crawler simulator, and search engine readiness suite. It simulates access rules for Googlebot, GPTBot, ClaudeBot, PerplexityBot, Applebot, Bingbot, and CCBot directly in client silicon with zero cloud egress.
 
-## Features
-- ⚡ Instant client-side execution with zero external runtime dependencies
-- 💳 Dual Cash Registers: Stripe Checkout ($19) + DePay Web3 Solana
-- 🔍 Permissive robots.txt, XML sitemap, and Schema.org JSON-LD structured data for instant crawlability
+- 🌐 **Live Web App**: [https://robots-txt-auditor.netlify.app](https://robots-txt-auditor.netlify.app)
+- 💳 **Founding Member License**: $19 Lifetime (Regular $79) via Stripe or Solana DePay.
+- ⚡ **Attribution**: Engineered by Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
 
-## Sovereign Monorepo
-Part of the Zoth Civilization Sovereign Ecosystem: `~/NullAITech/robots-txt-auditor`
+---
+
+## 🌟 Key Capabilities
+
+- 🤖 **Frontier AI Bot Simulation**: Real-time evaluation against Googlebot, OpenAI GPTBot, Anthropic ClaudeBot, PerplexityBot, Applebot, and Bingbot.
+- 📜 **RFC 9309 AST Engine**: Native, zero-dependency client AST parser for line-by-line directive precedence, wildcards (`*`), and end-of-path anchors (`$`).
+- ⚡ **Dynamic Crawlability Health Score**: Algorithmic scoring (0-100) assessing sitemap declarations, crawler isolation, and privacy exposure.
+- 🛡️ **Pro Drift Shield**: Automated crawler drift alerts and unthrottled rule set exports.
+- 💳 **Dual Checkout Rails**: Integrated Stripe Payment Link ($19) + DePay Web3 Solana payment widget.
+- 🔒 **Zero Data Egress**: All parsing and simulations run locally in the browser with 100% privacy guarantee.
+
+---
+
+## 📄 License
+
+Apache License 2.0. See [LICENSE](./LICENSE) for details.
+
+---
+
+*Engineered with precision by Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform ([nullai.tech](https://nullai.tech))*
