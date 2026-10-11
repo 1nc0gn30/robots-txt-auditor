@@ -10,6 +10,8 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://robots-txt-auditor.netlify.app/">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon.png">
+  <link rel="apple-touch-icon" href="/icon.png">
 
   <!-- OpenGraph -->
   <meta property="og:title" content="RobotsTxt Pro — AI Crawler & Search Readiness Studio">
@@ -794,6 +796,37 @@
       line-height: 1.45;
     }
 
+    .paywall-blur {
+      filter: blur(6px) !important;
+      transition: filter 0.2s ease;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(14, 18, 27, 0.95);
+      border: 1px solid var(--border-focus);
+      color: #F8FAFC;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
     /* Modal Framework */
     .modal-overlay {
       position: fixed;
@@ -981,7 +1014,7 @@
   <!-- Main Workstation -->
   <main>
     <!-- High-Converting Sales Funnel Banner Above Main Section -->
-    <div id="funnelHeroBanner" class="funnel-banner">
+    <aside id="salesBanner" class="funnel-banner" aria-label="Special Offer" data-alias="funnelHeroBanner">
       <div class="funnel-banner-inner">
         <div>
           <div class="deal-badge">🔥 LIMITED LIFETIME DEAL • 73% OFF [FOUNDING ACCESS]</div>
@@ -997,10 +1030,10 @@
             <a href="https://buy.stripe.com/7sI7sA8hM2X8eFG8ww" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19)</a>
             <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
           </div>
-          <button type="button" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter License Key / Email 🔑</button>
+          <button type="button" id="btn-paywall-key" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter License Key / Email 🔑</button>
         </div>
       </div>
-    </div>
+    </aside>
 
     <div class="hero">
       <div class="hero-badge">⚡ Real-Time In-Browser AST Parser • Zero Data Leaves Your Machine</div>
@@ -1127,7 +1160,7 @@
   </footer>
 
   <!-- Pro Paywall Modal -->
-  <div id="proPaywallModal" class="modal-overlay" onclick="if(event.target === this) closePaywallModal()">
+  <div id="proPaywallModal" class="modal-overlay" data-alias="paywall-modal" onclick="if(event.target === this) closePaywallModal()">
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title">⚡ Unlock RobotsTxt Pro</h3>
@@ -1160,18 +1193,23 @@
   </div>
 
   <!-- License Key Activation Modal -->
-  <div id="licenseModal" class="modal-overlay" onclick="if(event.target === this) closeLicenseModal()">
+  <div id="licenseModal" class="modal-overlay" data-alias="paywall-modal" onclick="if(event.target === this) closeLicenseModal()">
     <div class="modal-card" style="max-width: 440px;">
       <div class="modal-header">
         <h3 class="modal-title">🔑 Activate Pro License</h3>
         <button type="button" class="modal-close" aria-label="Close license modal" onclick="closeLicenseModal()">✕</button>
       </div>
       <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Enter your Stripe receipt email or license key:</p>
-      <input type="text" id="licenseKeyInput" placeholder="name@example.com or PRO-KEY" class="test-input" style="width: 100%; margin-bottom: 12px; color: #fff;" aria-label="Stripe receipt email or license key" onkeydown="if(event.key==='Enter') activateLicenseSubmit()">
-      <button type="button" onclick="activateLicenseSubmit()" class="btn-stripe" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px;">
+      <input type="text" id="license-input" placeholder="ROBOTS-PRO-2026 or receipt email" class="test-input" style="width: 100%; margin-bottom: 12px; color: #fff;" aria-label="Stripe receipt email or license key" onkeydown="if(event.key==='Enter') activateLicenseSubmit()">
+      <button id="btnActivateKey" type="button" onclick="activateLicenseSubmit()" class="btn-stripe" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px;">
         ⚡ Activate Lifetime License
       </button>
     </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="toast">
+    <span id="toast-message"></span>
   </div>
 
   <script>
@@ -1576,32 +1614,64 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       }
     }
 
+    function showToast(msg, type = 'info') {
+      let toast = document.getElementById('toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        toast.innerHTML = '<span id="toast-message"></span>';
+        document.body.appendChild(toast);
+      }
+      const msgEl = document.getElementById('toast-message') || toast;
+      msgEl.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+
     function checkProLicense() {
       const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('licensed') === 'true' || urlParams.get('session_id')) {
+      const isParamLicensed = (urlParams.get('licensed') === 'true' || urlParams.get('session_id') !== null);
+      const isSavedLicensed = (localStorage.getItem('pro_licensed') === 'true' || 
+                               localStorage.getItem('robots-txt-auditor_pro_licensed') === 'true' || 
+                               localStorage.getItem('robots_pro_licensed') === 'true');
+
+      if (isParamLicensed || isSavedLicensed) {
         activateProLicense('STRIPE-CHECKOUT');
-        return;
-      }
-      if (localStorage.getItem('pro_licensed') === 'true' || localStorage.getItem('robots-txt-auditor_pro_licensed') === 'true') {
-        isProLicensed = true;
-        updateProUI();
+        if (isParamLicensed && window.history && window.history.replaceState) {
+          window.history.replaceState({}, document.title, window.location.pathname);
+          showToast('🎉 Pro License Activated via Checkout!', 'success');
+        }
       }
     }
 
     function updateProUI() {
       if (isProLicensed) {
-        const heroBanner = document.getElementById('funnelHeroBanner');
-        if (heroBanner) heroBanner.style.display = 'none';
+        const banner = document.getElementById('salesBanner') || document.getElementById('funnelHeroBanner');
+        if (banner) banner.style.display = 'none';
 
-        const paywallOverlay = document.getElementById('outputPaywallOverlay');
+        const paywallOverlay = document.getElementById('outputPaywallOverlay') || document.getElementById('paywall-lock-overlay');
         if (paywallOverlay) paywallOverlay.style.display = 'none';
 
         const editor = document.getElementById('robotsInput');
-        if (editor) editor.style.filter = 'none';
+        if (editor) {
+          editor.style.filter = 'none';
+          editor.classList.remove('paywall-blur');
+        }
+
+        const badge = document.getElementById('licenseBadge');
+        if (badge) {
+          badge.textContent = '⭐ PRO ACTIVE';
+          badge.className = 'license-badge-pro';
+          badge.style.color = '#10B981';
+          badge.style.borderColor = '#10B981';
+          badge.style.background = 'rgba(16, 185, 129, 0.12)';
+          badge.style.boxShadow = '0 0 10px rgba(16, 185, 129, 0.25)';
+        }
 
         const proContainer = document.getElementById('headerProContainer');
         if (proContainer) {
-          proContainer.innerHTML = '<span id="licenseBadge" style="color: var(--emerald); font-weight: 700; font-size: 11px; border: 1px solid var(--emerald); padding: 4px 10px; border-radius: 9999px; background: rgba(16, 185, 129, 0.1);">⭐ PRO ACTIVE</span>';
+          proContainer.innerHTML = '<span id="licenseBadge" class="license-badge-pro" style="color: #10B981; font-weight: 700; font-size: 11px; border: 1px solid #10B981; padding: 4px 10px; border-radius: 9999px; background: rgba(16, 185, 129, 0.12); box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);">⭐ PRO ACTIVE</span>';
         }
       }
     }
@@ -1610,49 +1680,66 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       isProLicensed = true;
       localStorage.setItem('pro_licensed', 'true');
       localStorage.setItem('robots-txt-auditor_pro_licensed', 'true');
+      localStorage.setItem('robots_pro_licensed', 'true');
+      if (key) localStorage.setItem('robots_license_key', key);
       updateProUI();
       closeLicenseModal();
       closePaywallModal();
     }
 
     function openPaywallModal() {
-      document.getElementById('proPaywallModal').style.display = 'flex';
+      const m = document.getElementById('proPaywallModal') || document.getElementById('licenseModal');
+      if (m) m.style.display = 'flex';
     }
 
     function closePaywallModal() {
-      document.getElementById('proPaywallModal').style.display = 'none';
+      const m = document.getElementById('proPaywallModal');
+      if (m) m.style.display = 'none';
     }
 
     function openLicenseModal() {
       closePaywallModal();
-      document.getElementById('licenseModal').style.display = 'flex';
+      const m = document.getElementById('licenseModal');
+      if (m) m.style.display = 'flex';
     }
 
     function closeLicenseModal() {
-      document.getElementById('licenseModal').style.display = 'none';
+      const m = document.getElementById('licenseModal');
+      if (m) m.style.display = 'none';
     }
 
-    function activateLicenseSubmit() {
-      const key = document.getElementById('licenseKeyInput').value.trim();
-      if (!key) {
-        alert('Please enter your license key or email address.');
-        return;
+    function activateLicenseSubmit(customKey) {
+      const input = document.getElementById('license-input') || document.getElementById('licenseKeyInput');
+      const key = (customKey || (input ? input.value : '')).trim();
+      if (!key || key.length < 3) {
+        showToast('⚠️ Please enter your license key or email address.', 'error');
+        return false;
       }
       activateProLicense(key);
-      alert('License successfully activated! All Pro features unlocked.');
+      showToast('🎉 License successfully activated! All Pro features unlocked.', 'success');
+      return true;
     }
+    window.activateLicenseKey = activateLicenseSubmit;
 
     function toggleAstDriftShield() {
       if (isProLicensed) {
-        alert('🛡️ Pro Drift Shield Active: 100% RFC 9309 rulesets unthrottled and crawler monitoring enabled.');
+        showToast('🛡️ Pro Drift Shield Active: 100% RFC 9309 rulesets unthrottled and crawler monitoring enabled.', 'info');
         return;
       }
-      const overlay = document.getElementById('outputPaywallOverlay');
+      const overlay = document.getElementById('outputPaywallOverlay') || document.getElementById('paywall-lock-overlay');
       const editor = document.getElementById('robotsInput');
       if (overlay) {
         const isHidden = overlay.style.display === 'none';
         overlay.style.display = isHidden ? 'flex' : 'none';
-        if (editor) editor.style.filter = isHidden ? 'blur(6px)' : 'none';
+        if (editor) {
+          if (isHidden) {
+            editor.classList.add('paywall-blur');
+            editor.style.filter = 'blur(6px)';
+          } else {
+            editor.classList.remove('paywall-blur');
+            editor.style.filter = 'none';
+          }
+        }
       }
     }
 
@@ -1692,7 +1779,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
         document.execCommand('copy');
         if (cb) cb();
       } catch (e) {
-        alert('Failed to copy. Please manually copy the robots.txt content.');
+        showToast('⚠️ Failed to copy. Please manually copy the robots.txt content.', 'error');
       } finally {
         if (document.body.contains(ta)) {
           document.body.removeChild(ta);
@@ -1735,7 +1822,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
           }
         };
         script.onerror = () => {
-          alert('Solana payment receiver: GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK (Send 0.09 SOL to activate Pro)');
+          showToast('⚡ Solana payment receiver: GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK (Send 0.09 SOL to activate Pro)', 'info');
         };
         document.head.appendChild(script);
       }

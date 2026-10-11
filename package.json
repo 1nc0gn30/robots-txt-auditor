@@ -3,11 +3,28 @@
   "version": "1.0.0",
   "description": "Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator",
   "main": "public/index.html",
+  "homepage": "https://robots-txt-auditor.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1nc0gn30/robots-txt-auditor.git"
+  },
   "scripts": {
-    "start": "npx serve public -p 8080",
+    "start": "npx serve public -p 8086",
+    "test:ui": "python3 scripts/verify_ui.py",
     "test:guardrail": "node test_guardrail.mjs",
     "deploy": "netlify deploy --prod --dir=public"
   },
+  "keywords": [
+    "robots.txt",
+    "ai-crawler",
+    "gptbot",
+    "claudebot",
+    "perplexitybot",
+    "rfc9309",
+    "ast-parser",
+    "sovereign",
+    "nullai"
+  ],
   "author": "Neal Frazier (1nc0gn30)",
   "license": "MIT"
 }
