@@ -966,7 +966,8 @@
       <a href="/cities/norfolk-va/agencies/" class="nav-link">Norfolk Agency Audit</a>
     </nav>
     <div class="header-actions">
-      <div id="headerProContainer" style="display: inline-flex;">
+      <div id="headerProContainer" style="display: inline-flex; align-items: center; gap: 8px;">
+        <span id="licenseBadge" class="license-badge-free" style="color: var(--text-dim); font-weight: 700; font-size: 11px; border: 1px solid var(--border); padding: 4px 10px; border-radius: 9999px; background: rgba(255, 255, 255, 0.04);">⚡ FREE TIER</span>
         <button class="btn-stripe" onclick="openPaywallModal()">
           <span>💳</span> Unlock Pro ($19)
         </button>
@@ -1600,7 +1601,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
 
         const proContainer = document.getElementById('headerProContainer');
         if (proContainer) {
-          proContainer.innerHTML = '<span style="color: var(--emerald); font-weight: 700; font-size: 11px; border: 1px solid var(--emerald); padding: 4px 10px; border-radius: 9999px; background: rgba(16, 185, 129, 0.1);">⭐ PRO ACTIVE</span>';
+          proContainer.innerHTML = '<span id="licenseBadge" style="color: var(--emerald); font-weight: 700; font-size: 11px; border: 1px solid var(--emerald); padding: 4px 10px; border-radius: 9999px; background: rgba(16, 185, 129, 0.1);">⭐ PRO ACTIVE</span>';
         }
       }
     }
