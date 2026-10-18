@@ -986,7 +986,7 @@
   <!-- Header -->
   <header>
     <a href="/" class="brand">
-      <div class="brand-icon">🤖</div>
+      <div class="brand-icon">◈</div>
       <div>
         <span class="brand-title">RobotsTxt Pro</span>
         <span class="brand-badge">RFC 9309 Parser</span>
@@ -1002,7 +1002,7 @@
       <div id="headerProContainer" style="display: inline-flex; align-items: center; gap: 8px;">
         <span id="licenseBadge" class="license-badge-free" style="color: var(--text-dim); font-weight: 700; font-size: 11px; border: 1px solid var(--border); padding: 4px 10px; border-radius: 9999px; background: rgba(255, 255, 255, 0.04);">⚡ FREE TIER</span>
         <button class="btn-stripe" onclick="openPaywallModal()">
-          <span>💳</span> Unlock Pro ($19)
+          <span>★</span> Unlock Pro ($19)
         </button>
       </div>
       <button class="btn-depay" onclick="launchDePay()">
@@ -1017,7 +1017,7 @@
     <aside id="salesBanner" class="funnel-banner" aria-label="Special Offer" data-alias="funnelHeroBanner">
       <div class="funnel-banner-inner">
         <div>
-          <div class="deal-badge">🔥 LIMITED LIFETIME DEAL • 73% OFF [FOUNDING ACCESS]</div>
+          <div class="deal-badge">★ LIMITED LIFETIME DEAL • 73% OFF [FOUNDING ACCESS]</div>
           <h2 class="funnel-title">Supercharge Your Crawler Readiness with RobotsTxt Pro</h2>
           <p class="funnel-subtitle">Instant RFC 9309 verification, automated crawler drift monitoring, unlimited ruleset export, and exportable AI compliance audit reports.</p>
         </div>
@@ -1027,10 +1027,10 @@
             <strong class="funnel-price">$19</strong>
           </div>
           <div class="funnel-buttons">
-            <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19)</a>
+            <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">★ Unlock Pro ($19)</a>
             <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
           </div>
-          <button type="button" id="btn-paywall-key" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter License Key / Email 🔑</button>
+          <button type="button" id="btn-paywall-key" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter License Key / Email ✦</button>
         </div>
       </div>
     </aside>
@@ -1047,7 +1047,7 @@
       <div class="card" style="position: relative;">
         <div class="card-header">
           <div class="card-title">
-            <span>📝</span> robots.txt Editor
+            <span>✎</span> robots.txt Editor
           </div>
           <select id="presetSelect" class="preset-select" aria-label="Select robots.txt preset" onchange="loadPreset(this.value)">
             <option value="ai-welcome">Preset: AI Welcoming (SEO + AEO)</option>
@@ -1063,16 +1063,16 @@
 
           <!-- Output Paywall Lock Overlay -->
           <div id="outputPaywallOverlay" class="output-paywall-overlay" style="display: none;">
-            <div class="paywall-lock-icon">🔒</div>
+            <div class="paywall-lock-icon">★</div>
             <div class="paywall-lock-tag">PRO DRIFT & EXPORT SHIELD</div>
             <h3 class="paywall-lock-title">Unlock Full AST Export & Drift Alerts</h3>
             <p class="paywall-lock-desc">Exporting unthrottled RFC 9309 rulesets and activating automated crawler drift alerts is reserved for Pro license holders.</p>
             <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
-              <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">💳 Unlock Pro ($19 Lifetime)</a>
+              <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">★ Unlock Pro ($19 Lifetime)</a>
               <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
             </div>
             <div style="display: flex; gap: 12px; align-items: center; margin-top: 10px; justify-content: center;">
-              <button type="button" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter key 🔑</button>
+              <button type="button" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter key ✦</button>
               <button type="button" class="btn-key-activate" onclick="toggleAstDriftShield()" style="color: var(--text-dim); text-decoration: underline;">✕ Dismiss</button>
             </div>
           </div>
@@ -1080,9 +1080,9 @@
 
         <div class="card-toolbar">
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <button id="btnCopyRobots" class="btn-action" onclick="copyRobotsTxt()">📋 Copy File</button>
-            <button class="btn-action" onclick="downloadRobotsTxt()">💾 Download .txt</button>
-            <button id="btnAstDrift" class="btn-action" onclick="toggleAstDriftShield()">🛡️ Pro Drift Shield</button>
+            <button id="btnCopyRobots" class="btn-action" onclick="copyRobotsTxt()">✦ Copy File</button>
+            <button class="btn-action" onclick="downloadRobotsTxt()">↓ Download .txt</button>
+            <button id="btnAstDrift" class="btn-action" onclick="toggleAstDriftShield()">❖ Pro Drift Shield</button>
           </div>
           <div id="lineCountBadge" style="color: var(--text-dim); font-family: var(--mono); font-size: 11px;">
             14 lines • UTF-8
@@ -1094,7 +1094,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span>🔍</span> Real-Time Crawler Simulator
+            <span>⌕</span> Real-Time Crawler Simulator
           </div>
           <div id="statusBadgeHeader" class="status-badge status-allowed">
             ● 7 / 7 BOTS ALLOWED
@@ -1179,7 +1179,7 @@
 
       <div style="display: flex; flex-direction: column; gap: 8px; margin: 16px 0;">
         <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe" style="justify-content: center; padding: 12px; font-size: 14px;">
-          💳 Unlock with Card / Apple Pay ($19)
+          ★ Unlock with Card / Apple Pay ($19)
         </a>
         <button type="button" class="btn-depay" onclick="launchDePay()" style="justify-content: center; padding: 12px; font-size: 14px;">
           ⚡ Unlock with Crypto (Solana SOL / USDC)
@@ -1187,7 +1187,7 @@
       </div>
 
       <button type="button" class="btn-key-activate" onclick="openLicenseModal()" style="width: 100%; text-align: center;">
-        Already purchased? Activate with License Key / Email 🔑
+        Already purchased? Activate with License Key / Email ✦
       </button>
     </div>
   </div>
@@ -1196,7 +1196,7 @@
   <div id="licenseModal" class="modal-overlay" data-alias="paywall-modal" onclick="if(event.target === this) closeLicenseModal()">
     <div class="modal-card" style="max-width: 440px;">
       <div class="modal-header">
-        <h3 class="modal-title">🔑 Activate Pro License</h3>
+        <h3 class="modal-title">✦ Activate Pro License</h3>
         <button type="button" class="modal-close" aria-label="Close license modal" onclick="closeLicenseModal()">✕</button>
       </div>
       <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Enter your Stripe receipt email or license key:</p>
@@ -1325,13 +1325,13 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
 
     // Bots definition
     const BOTS = [
-      { id: 'Googlebot', name: 'Googlebot', role: 'Google Search & SGE', icon: '🌐' },
-      { id: 'GPTBot', name: 'GPTBot', role: 'OpenAI Search & ChatGPT', icon: '🤖' },
-      { id: 'ClaudeBot', name: 'ClaudeBot', role: 'Anthropic Claude & Artifacts', icon: '🧠' },
+      { id: 'Googlebot', name: 'Googlebot', role: 'Google Search & SGE', icon: '◎' },
+      { id: 'GPTBot', name: 'GPTBot', role: 'OpenAI Search & ChatGPT', icon: '◈' },
+      { id: 'ClaudeBot', name: 'ClaudeBot', role: 'Anthropic Claude & Artifacts', icon: '◈' },
       { id: 'PerplexityBot', name: 'PerplexityBot', role: 'Perplexity Answer Engine', icon: '⚡' },
-      { id: 'Applebot', name: 'Applebot', role: 'Apple Intelligence & Siri', icon: '🍎' },
-      { id: 'Bingbot', name: 'Bingbot', role: 'Bing Search & Copilot', icon: '🔍' },
-      { id: 'CCBot', name: 'CCBot', role: 'Common Crawl General Scraper', icon: '🕷️' }
+      { id: 'Applebot', name: 'Applebot', role: 'Apple Intelligence & Siri', icon: '★' },
+      { id: 'Bingbot', name: 'Bingbot', role: 'Bing Search & Copilot', icon: '⌕' },
+      { id: 'CCBot', name: 'CCBot', role: 'Common Crawl General Scraper', icon: '◈' }
     ];
 
     function init() {
@@ -1640,7 +1640,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
         activateProLicense('STRIPE-CHECKOUT');
         if (isParamLicensed && window.history && window.history.replaceState) {
           window.history.replaceState({}, document.title, window.location.pathname);
-          showToast('🎉 Pro License Activated via Checkout!', 'success');
+          showToast('★ Pro License Activated via Checkout!', 'success');
         }
       }
     }
@@ -1722,14 +1722,14 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
         return false;
       }
       activateProLicense(key);
-      showToast('🎉 License successfully activated! All Pro features unlocked.', 'success');
+      showToast('★ License successfully activated! All Pro features unlocked.', 'success');
       return true;
     }
     window.activateLicenseKey = activateLicenseSubmit;
 
     function toggleAstDriftShield() {
       if (isProLicensed) {
-        showToast('🛡️ Pro Drift Shield Active: 100% RFC 9309 rulesets unthrottled and crawler monitoring enabled.', 'info');
+        showToast('❖ Pro Drift Shield Active: 100% RFC 9309 rulesets unthrottled and crawler monitoring enabled.', 'info');
         return;
       }
       const overlay = document.getElementById('outputPaywallOverlay') || document.getElementById('paywall-lock-overlay');
@@ -1756,7 +1756,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       }
       const text = document.getElementById('robotsInput').value;
       const copyBtn = document.getElementById('btnCopyRobots');
-      const origText = copyBtn ? copyBtn.innerHTML : '📋 Copy File';
+      const origText = copyBtn ? copyBtn.innerHTML : '✦ Copy File';
 
       const showSuccess = () => {
         if (copyBtn) {
