@@ -1,48 +1,57 @@
-# 🤖 RobotsTxt Pro & AI Crawler Readiness Auditor (`robots-txt-auditor`)
+<div align="center">
+  <img src="assets/hero-banner.svg" alt="Robots Txt Auditor — Sovereign Architecture Banner" width="100%" />
+</div>
 
-[![Live Demo](https://img.shields.io/badge/Live%20App-robots--txt--auditor.netlify.app-00DC82?style=flat&logo=netlify)](https://robots-txt-auditor.netlify.app)
-[![License: Pro](https://img.shields.io/badge/Pro%20Lifetime-$19%20USD-635BFF?style=flat&logo=stripe)](https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L)
-[![Solana Pay](https://img.shields.io/badge/Solana-DePay%20Accepted-14F195?style=flat&logo=solana)](https://robots-txt-auditor.netlify.app)
-[![Zoth Studio Ready](https://img.shields.io/badge/Zoth%20Studio-God%20Mode%20Active-D4AF37?style=flat)](https://zoth.nullai.tech/tools/robots-txt-auditor)
+<br />
 
-**RobotsTxt Pro Studio** is an enterprise-grade, 100% in-browser RFC 9309 robots.txt parser, AI crawler simulator, and search engine readiness suite. It simulates access rules for Googlebot, GPTBot, ClaudeBot, PerplexityBot, Applebot, Bingbot, and CCBot directly in client silicon with zero cloud egress.
+<div align="center">
+  <a href="https://zoth.nullai.tech/tools/robots-txt-aeo-auditor"><img src="https://img.shields.io/badge/Zoth_Studio_v2-Workspace-D4AF37?style=for-the-badge&logo=sparkles&logoColor=black" alt="Zoth Studio Workspace" /></a>
+  <a href="https://zothos.nullai.tech"><img src="https://img.shields.io/badge/ZothOS_v3.3-Port_:3000-38BDF8?style=for-the-badge&logo=linux&logoColor=black" alt="Port :3000" /></a>
+  <a href="https://nullai.tech"><img src="https://img.shields.io/badge/Security-100%25_Zero--Egress-10B981?style=for-the-badge&logo=shield&logoColor=black" alt="Zero Egress" /></a>
+</div>
 
-- 🌐 **Live Web App**: [https://robots-txt-auditor.netlify.app](https://robots-txt-auditor.netlify.app)
-- 💻 **Zoth Studio Enclave**: [https://zoth.nullai.tech/tools/robots-txt-auditor](https://zoth.nullai.tech/tools/robots-txt-auditor)
-- 💳 **Founding Member License**: $19 Lifetime (Regular $79) via [Stripe](https://buy.stripe.com/4gMfZg9AheOsdhKbcAfw40L) or Solana DePay (`GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`).
-- ⚡ **Attribution**: Engineered by Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • NullAI Platform.
+# ⚡ Robots Txt Auditor
 
----
-
-## 🌟 Key Capabilities
-
-- 🤖 **Frontier AI Bot Simulation**: Real-time evaluation against Googlebot, OpenAI GPTBot, Anthropic ClaudeBot, PerplexityBot, Applebot, and Bingbot.
-- 📜 **RFC 9309 AST Engine**: Native, zero-dependency client AST parser for line-by-line directive precedence, wildcards (`*`), and end-of-path anchors (`$`).
-- ⚡ **Dynamic Crawlability Health Score**: Algorithmic scoring (0–100) assessing sitemap declarations, crawler isolation, and privacy exposure.
-- 🛡️ **Pro Drift Shield**: Automated crawler drift alerts and unthrottled rule set exports.
-- 💳 **Dual Checkout Rails**: Integrated Stripe Payment Link ($19) + DePay Web3 Solana payment widget.
-- 🔒 **Zero Data Egress**: All parsing and simulations run locally in the browser with 100% privacy guarantee.
+> **Robots Txt Auditor — Sovereign local-first developer workstation and autonomous engine in the NullAI Platform.**
 
 ---
 
-## 🚀 Quickstart & Local Execution
+## 🏛️ Architectural Overview
 
-Run the standalone studio locally with zero build dependencies:
+**Robots Txt Auditor** is an official sovereign tool in the **[Zoth Studio v2](https://zoth.nullai.tech)** (71-Tool Matrix) and **[ZothOS Linux 3.3](https://zothos.nullai.tech)** ecosystem, engineered by **Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30))**.
+
+| Property | Specification |
+| :--- | :--- |
+| **Tool ID** | `robots-txt-aeo-auditor` |
+| **Category** | `Sovereign AI & Systems` |
+| **Loopback Port** | `http://127.0.0.1:3000` |
+| **Execution Mode** | `browser` |
+| **Zoth Studio Route** | [`https://zoth.nullai.tech/tools/robots-txt-aeo-auditor`](https://zoth.nullai.tech/tools/robots-txt-aeo-auditor) |
+
+---
+
+## 💎 Key Capabilities
+
+- **100% Zero-Egress Client & Local Enclave Execution**
+- **Real-Time Interactive Telemetry & AST Verification**
+- **Native Zoth Studio v2 & ZothOS v3.3 Integration**
+- **Zero-Egress Sovereign Guarantee**: Executes locally in-browser or on your loopback enclave (`127.0.0.1:3000`) with zero cloud telemetry.
+- **Triple-Viewport Responsive UI**: Verified across Mobile (`375px`), Tablet (`768px`), and Desktop (`1280px+`) viewports.
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/1nc0gn30/robots-txt-auditor.git
-cd robots-txt-auditor
+# Launch via CLI or Zoth Fleet Supervisor
+cd ~/NullAITech/robots-txt-auditor && npm start
 
-# Launch with any local HTTP server
-python3 -m http.server 8086 --directory public
+# Or supervise the entire 73-port fleet from Zoth Studio v2:
+python3 ~/NullAITech/zoth-studio-v2/bin/ensure_fleet.py
 ```
-
-Open [http://localhost:8086](http://localhost:8086) in your browser.
 
 ---
 
-## 📄 License & Attribution
-
-- **License**: Apache License 2.0. See [LICENSE](./LICENSE) for details.
-- **Engineered by**: Neal Frazier Tech ([@1nc0gn30](https://github.com/1nc0gn30)) • **NullAI Platform** ([nullai.tech](https://nullai.tech))
+<div align="center">
+  <sub>Engineered by <b>Neal Frazier Tech</b> (<a href="https://github.com/1nc0gn30">@1nc0gn30</a>) &bull; <a href="https://nullai.tech">NullAI Platform</a> &bull; <a href="https://zoth.nullai.tech">Zoth Studio v2</a></sub>
+</div>
