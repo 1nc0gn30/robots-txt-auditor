@@ -1,0 +1,320 @@
+/* ==========================================================================
+   wave-states.css — Auditor Control States, Error/Empty Presentation & A11y
+   Product: AI Crawler & Robots.txt Studio (RobotsTxt Pro)
+   Standard: Design Director & Motion Choreography
+   Anchor Concept: Instrument Feedback States
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Visible Focus States (:focus-visible)
+   High-contrast, intentional keyboard navigation rings matching the system
+   -------------------------------------------------------------------------- */
+
+/* Clean reset: suppress default outline when activated via mouse click */
+:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* Universal high-contrast keyboard focus indicator */
+:focus-visible {
+  outline: 2px solid var(--cyan) !important;
+  outline-offset: 2px !important;
+}
+
+/* Preset Dropdown Focus */
+.preset-select:focus-visible,
+#presetSelect:focus-visible {
+  outline: 2px solid var(--cyan) !important;
+  outline-offset: 2px !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25) !important;
+}
+
+/* Textarea & Editor Focus */
+textarea.editor:focus-visible,
+#robotsInput:focus-visible {
+  outline: none !important; /* Focus handled by container wrapper for code editor */
+}
+
+.editor-wrapper:focus-within {
+  border-color: rgba(6, 182, 212, 0.5) !important;
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.35), 0 0 16px rgba(6, 182, 212, 0.12) !important;
+}
+
+/* Path Simulation Input Focus */
+.test-input:focus-visible,
+#targetPath:focus-visible,
+#license-input:focus-visible {
+  outline: 2px solid var(--cyan) !important;
+  outline-offset: 1px !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25) !important;
+}
+
+/* Button & Action Focus States */
+.btn-test:focus-visible,
+.card-toolbar .btn-action:focus-visible,
+#btnCopyRobots:focus-visible,
+#btnAstDrift:focus-visible,
+.btn-stripe:focus-visible,
+.btn-depay:focus-visible,
+.btn-key-activate:focus-visible,
+.modal-close:focus-visible {
+  outline: 2px solid var(--cyan) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Navigation Links Focus */
+.nav-link:focus-visible,
+.brand:focus-visible,
+footer a:focus-visible {
+  outline: 2px solid var(--cyan) !important;
+  outline-offset: 3px !important;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Hover & Interaction States on Auditor Controls
+   Snappy micro-interactions (120ms–150ms), subtle elevation, crisp borders
+   -------------------------------------------------------------------------- */
+
+/* Preset Selector Hover */
+.preset-select {
+  transition: border-color 0.14s ease, background-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.preset-select:hover,
+#presetSelect:hover {
+  border-color: #475569 !important;
+  background-color: #0E1422 !important;
+  color: #FFFFFF !important;
+}
+
+/* Auditor Action Buttons Hover */
+.card-toolbar .btn-action {
+  transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease, transform 0.1s ease;
+}
+
+.card-toolbar .btn-action:hover,
+#btnCopyRobots:hover,
+#btnAstDrift:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(56, 189, 248, 0.45) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.card-toolbar .btn-action:active,
+#btnCopyRobots:active,
+#btnAstDrift:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Path Simulation Evaluate Button Hover */
+.btn-test {
+  transition: opacity 0.14s ease, transform 0.1s ease, box-shadow 0.14s ease;
+}
+
+.btn-test:hover {
+  opacity: 0.94 !important;
+  box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35) !important;
+  transform: translateY(-1px);
+}
+
+.btn-test:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Path Input Hover */
+.test-input {
+  transition: border-color 0.14s ease, background-color 0.14s ease;
+}
+
+.test-input:hover {
+  border-color: #334155;
+  background-color: #131926;
+}
+
+/* Editor Wrapper & Gutter Hover */
+.editor-wrapper {
+  transition: border-color 0.15s ease;
+}
+
+.editor-wrapper:hover {
+  border-color: #2D3748;
+}
+
+/* Crawler Matrix Row Hover */
+.crawler-row {
+  transition: border-color 0.14s ease, background-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.crawler-row:hover {
+  border-color: #334155 !important;
+  background-color: #0E131E !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Key Activation Button Hover */
+.btn-key-activate {
+  transition: color 0.14s ease, opacity 0.14s ease;
+}
+
+.btn-key-activate:hover {
+  color: #F8FAFC !important;
+  text-decoration-color: var(--cyan) !important;
+}
+
+/* Modal Close Button Hover */
+.modal-close {
+  transition: color 0.14s ease, background-color 0.14s ease;
+}
+
+.modal-close:hover {
+  color: #FFFFFF !important;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   3. Empty & Error Presentation (Using Existing Selectors)
+   Clear diagnostic feedback for blocked bots, warnings, and empty inputs
+   -------------------------------------------------------------------------- */
+
+/* Error State: Blocked Crawler Directives */
+.status-blocked {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #FCA5A5 !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.18) !important;
+}
+
+/* Highlight Matrix Row When a Crawler is Blocked */
+.crawler-row:has(.status-blocked) {
+  border-left: 3px solid rgba(239, 68, 68, 0.7);
+}
+
+/* Warning State: Mixed or Cautionary Crawl Directives */
+.status-warning {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #FDE68A !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.18) !important;
+}
+
+.crawler-row:has(.status-warning) {
+  border-left: 3px solid rgba(245, 158, 11, 0.7);
+}
+
+/* Success State: Allowed Crawlers */
+.status-allowed {
+  background: rgba(16, 185, 129, 0.14) !important;
+  color: #6EE7B7 !important;
+  border: 1px solid rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Header Status Badge Error & Warning Variants */
+#statusBadgeHeader.status-blocked {
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: rgba(239, 68, 68, 0.6) !important;
+  color: #F87171 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.25) !important;
+}
+
+#statusBadgeHeader.status-warning {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border-color: rgba(245, 158, 11, 0.6) !important;
+  color: #FBBF24 !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25) !important;
+}
+
+#statusBadgeHeader.status-allowed {
+  background: rgba(16, 185, 129, 0.16) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  color: #34D399 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Input Invalid / Error Presentation */
+.test-input:invalid,
+#targetPath:invalid,
+#license-input:invalid {
+  border-color: var(--red) !important;
+  box-shadow: 0 0 0 1px var(--red), 0 0 8px rgba(239, 68, 68, 0.25) !important;
+}
+
+/* Empty Input Placeholder Presentation */
+.test-input::placeholder,
+textarea.editor::placeholder,
+#license-input::placeholder {
+  color: var(--text-dim);
+  opacity: 0.8;
+  font-style: normal;
+}
+
+.test-input:placeholder-shown,
+textarea.editor:placeholder-shown {
+  border-color: var(--border);
+}
+
+/* Empty Crawler Matrix Presentation */
+.crawler-matrix:empty::after {
+  content: "No crawler directives evaluated yet. Type a rule or select a preset to audit.";
+  display: block;
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 12.5px;
+  font-family: var(--font);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+/* Toast Presentation for Alerts & Errors */
+.toast {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 12px rgba(6, 182, 212, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   4. Prefers-Reduced-Motion Guarantee
+   Strict accessibility compliance: zeroes animations, transforms, and delays
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .preset-select,
+  .card-toolbar .btn-action,
+  #btnCopyRobots,
+  #btnAstDrift,
+  .btn-test,
+  .btn-stripe,
+  .btn-depay,
+  .btn-key-activate,
+  .crawler-row,
+  .toast,
+  .modal-overlay,
+  .modal-card {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .card-toolbar .btn-action:hover,
+  .card-toolbar .btn-action:active,
+  .btn-test:hover,
+  .btn-test:active,
+  .btn-stripe:hover,
+  .btn-stripe:active {
+    transform: none !important;
+  }
+}

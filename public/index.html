@@ -15,7 +15,7 @@
 
   <!-- OpenGraph -->
   <meta property="og:title" content="RobotsTxt Pro — AI Crawler & Search Readiness Studio">
-  <meta property="og:description" content="Real-time in-browser robots.txt parser and AI crawler simulator with dual Stripe and Solana DePay checkout.">
+  <meta property="og:description" content="Real-time in-browser robots.txt parser and AI crawler simulator with dual Stripe and Solana Tip checkout.">
   <meta property="og:url" content="https://robots-txt-auditor.netlify.app/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://robots-txt-auditor.netlify.app/og-preview.png">
@@ -50,10 +50,10 @@
         },
         "offers": {
           "@type": "Offer",
-          "price": "19.00",
+          "price": "0",
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
-          "url": "https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J"
+          "url": "https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X"
         }
       },
       {
@@ -70,7 +70,7 @@
           },
           {
             "@type": "Question",
-            "name": "What is included with the $19 Pro License?",
+            "name": "What is included with the Free (100% Open Access) Pro License?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "The Pro License unlocks automated daily crawler drift monitoring, webhook alerting, unlimited sitemap verification, and exportable crawler compliance audit reports."
@@ -83,8 +83,6 @@
   </script>
 
   <!-- DePay Web3 Solana CDN -->
-  <script src="https://integrate.depay.com/widgets/v13.js"></script>
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -797,7 +795,7 @@
     }
 
     .paywall-blur {
-      filter: blur(6px) !important;
+      filter: none !important;
       transition: filter 0.2s ease;
     }
 
@@ -813,7 +811,7 @@
       font-size: 13px;
       font-weight: 600;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(8px);
+      backdrop-filter: none;
       z-index: 9999;
       opacity: 0;
       transform: translateY(12px);
@@ -979,8 +977,51 @@
       }
     }
   </style>
+
+  <!-- Auditor Work Surface Hierarchy & Motion -->
+  <link rel="stylesheet" href="/wave.css">
+  <link rel="stylesheet" href="/wave-states.css">
+
+  <!-- Zoth 100% Open-Access & Buy Us a Coffee Invariant -->
+  <script id="zoth-open-access-init">
+    (function() {
+      try {
+        var keys = ['agent_audiocipher_pro', 'agent_cyber_turtle_pro', 'agent_datamosh_pro', 'agent_nexus3d_pro', 'agent_policy_pro', 'audiocipher_license', 'audiocipher_pro_licensed', 'badge3d_pro_licensed', 'certpath_pro_key', 'certpath_pro_licensed', 'cron_rhythm_pro_key', 'cron_rhythm_pro_licensed', 'cwv-speed-engine_pro_licensed', 'cwv_pro_licensed', 'cyber_turtle_pro_licensed', 'datamosh_pro_licensed', 'deepsearch-research-agent_pro_licensed', 'deepsearch_pro_licensed', 'entropy_studio_licensed', 'envguard-secrets-vault_pro_licensed', 'envguard_pro_license', 'etsy_connector_pro', 'jwt_guard_licensed', 'mdg_pro_licensed', 'neuro_pro_licensed', 'nexus3d_pro_licensed', 'omnipost_pro_key', 'omnipost_pro_licensed', 'osint_pro_licensed', 'payload-entropy-studio_pro_licensed', 'polyglot_pro_licensed', 'pro_licensed', 'promptmaster_pro_licensed', 'promptmaster_pro_active', 'robots-txt-auditor_pro_licensed', 'robots_pro_licensed', 'schema_illustrator_pro_licensed', 'sovereign_pro_licensed', 'subsweep-lead-scanner_pro_licensed', 'subsweep_licensed', 'turtle_pro_licensed', 'ufo_sacred_licensed', 'vector-search-engine_pro_licensed', 'vector_studio_pro_licensed', 'web-security-guard_pro_licensed', 'web_security_guard_licensed', 'yourdigitalspace_pro', 'zela_guide_pro_licensed', 'zoth_ascii_magic_pro', 'zoth_audiocipher_licensed', 'zoth_badge3d_licensed', 'zoth_cyber_turtle_licensed', 'zoth_datamosh_licensed', 'zoth_etsy_licensed', 'zoth_nexus3d_licensed', 'zoth_osint_licensed', 'zoth_policy_licensed', 'zoth_sacred_licensed', 'zoth_ufo_licensed'];
+        for (var i = 0; i < keys.length; i++) {
+          localStorage.setItem(keys[i], 'true');
+        }
+        localStorage.setItem('pm_license_v2', JSON.stringify({ method: 'open_access', ref: 'free_forever', at: '2026-01-01T00:00:00Z' }));
+        window.isPro = true;
+        window.isProLicensed = true;
+      } catch (e) {}
+    })();
+  </script>
+  <style id="zoth-open-access-override">
+    .paywall-overlay, .output-paywall-overlay, #outputPaywallOverlay, #schemaPaywallOverlay,
+    #transformerPaywallOverlay, #proPaywallModal, #licenseModal, #salesBanner, #founding-offer-banner,
+    #funnelHeroBanner, [data-alias="paywallOverlay"], [data-alias="founding-offer-banner"] {
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    .paywall-wrap #outputPreview, .paywall-wrap #reportContentArea, .paywall-content,
+    .paywall-content.locked, .paywall-wrap.is-locked #outputPreview, .paywall-wrap.locked #outputPreview {
+      filter: none !important;
+      -webkit-filter: none !important;
+      user-select: auto !important;
+      pointer-events: auto !important;
+    }
+  </style>
+
 </head>
 <body>
+
+<div id="zoth-coffee-support-bar" style="background: linear-gradient(90deg, rgba(16,185,129,0.12), rgba(212,175,55,0.14)); border-bottom: 1px solid rgba(212,175,55,0.35); padding: 8px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; z-index: 9999;">
+  <span style="color: #10B981; font-weight: 800;">✦ 100% FREE &amp; OPEN ACCESS · ZERO PAYWALLS</span>
+  <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer" style="background: #D4AF37; color: #08080B; padding: 4px 12px; border-radius: 6px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">☕ Buy Us a Coffee (Stripe)</a>
+  <a href="solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" onclick="if(navigator.clipboard){navigator.clipboard.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK');this.textContent='✓ Copied GG2eQb...dXoK!';}" style="background: rgba(20,241,149,0.15); color: #14F195; border: 1px solid rgba(20,241,149,0.45); padding: 4px 12px; border-radius: 6px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">◎ Solana Tip (GG2e...dXoK)</a>
+</div>
+
   <div class="ambient-glow"></div>
 
   <!-- Header -->
@@ -1000,39 +1041,25 @@
     </nav>
     <div class="header-actions">
       <div id="headerProContainer" style="display: inline-flex; align-items: center; gap: 8px;">
-        <span id="licenseBadge" class="license-badge-free" style="color: var(--text-dim); font-weight: 700; font-size: 11px; border: 1px solid var(--border); padding: 4px 10px; border-radius: 9999px; background: rgba(255, 255, 255, 0.04);">⚡ FREE TIER</span>
-        <button class="btn-stripe" onclick="openPaywallModal()">
-          <span>★</span> Unlock Pro ($19)
-        </button>
+        <span style="color: #10B981; font-weight: 700; font-size: 11px; border: 1px solid rgba(16,185,129,0.3); padding: 4px 10px; border-radius: 9999px; background: rgba(16,185,129,0.1);">✦ 100% FREE &amp; OPEN ACCESS</span>
+        <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer" class="btn-stripe" style="background:#D4AF37; color:#08080B; font-weight:800; text-decoration:none; padding:6px 14px; border-radius:6px; font-size:12px; display:inline-flex; align-items:center; gap:6px;">
+          ☕ Buy Us a Coffee (Stripe)
+        </a>
+        <a href="solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" onclick="navigator.clipboard&&navigator.clipboard.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK');this.textContent='✓ Copied Solana Tip!';" class="btn-stripe" style="background:rgba(20,241,149,0.12); color:#14F195; border:1px solid rgba(20,241,149,0.4); font-weight:800; text-decoration:none; padding:6px 14px; border-radius:6px; font-size:12px; cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+          ◎ Solana Tip: GG2e...dXoK
+        </a>
       </div>
-      <button class="btn-depay" onclick="launchDePay()">
-        <span>⚡</span> Pay with SOL
-      </button>
     </div>
   </header>
 
   <!-- Main Workstation -->
   <main>
-    <!-- High-Converting Sales Funnel Banner Above Main Section -->
-    <aside id="salesBanner" class="funnel-banner" aria-label="Special Offer" data-alias="funnelHeroBanner">
-      <div class="funnel-banner-inner">
-        <div>
-          <div class="deal-badge">★ LIMITED LIFETIME DEAL • 73% OFF [FOUNDING ACCESS]</div>
-          <h2 class="funnel-title">Supercharge Your Crawler Readiness with RobotsTxt Pro</h2>
-          <p class="funnel-subtitle">Instant RFC 9309 verification, automated crawler drift monitoring, unlimited ruleset export, and exportable AI compliance audit reports.</p>
-        </div>
-        <div class="funnel-cta-group">
-          <div class="funnel-price-row">
-            <span class="funnel-strike">$79</span>
-            <strong class="funnel-price">$19</strong>
-          </div>
-          <div class="funnel-buttons">
-            <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">★ Unlock Pro ($19)</a>
-            <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
-          </div>
-          <button type="button" id="btn-paywall-key" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter License Key / Email ✦</button>
-        </div>
-      </div>
+    <!-- Sovereign Support Banner -->
+    <aside id="salesBanner" style="background: linear-gradient(90deg, rgba(16,185,129,0.12), rgba(212,175,55,0.16)); border-bottom: 1px solid rgba(212,175,55,0.3); padding: 8px 16px; display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 11px; font-family: monospace; z-index: 95; flex-wrap: wrap;">
+      <span style="color:#10B981;font-weight:800;">✦ 100% FREE &amp; OPEN ACCESS · ZERO PAYWALLS · LOCAL DAEMON :8086</span>
+      <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer" style="background:#D4AF37;color:#08080B;padding:4px 10px;border-radius:4px;font-weight:800;text-decoration:none;">☕ Buy Us a Coffee (Stripe)</a>
+      <a href="solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" onclick="navigator.clipboard&&navigator.clipboard.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK');this.textContent='✓ Copied Solana Tip!';" style="background:rgba(20,241,149,0.12);color:#14F195;border:1px solid rgba(20,241,149,0.4);padding:4px 10px;border-radius:4px;font-weight:800;text-decoration:none;cursor:pointer;">◎ Solana Tip: GG2e...dXoK</a>
+      <a href="http://127.0.0.1:3000/tools/robots-txt-auditor" style="background:#10B981;color:#05070B;padding:4px 10px;border-radius:4px;font-weight:800;text-decoration:none;">Open Zoth Studio God-Mode ↗</a>
     </aside>
 
     <div class="hero">
@@ -1060,22 +1087,6 @@
         <div class="editor-wrapper" style="position: relative;">
           <div id="lineNumbers" class="line-numbers">1</div>
           <textarea id="robotsInput" class="editor" spellcheck="false" aria-label="robots.txt content editor" oninput="onEditorChange()"></textarea>
-
-          <!-- Output Paywall Lock Overlay -->
-          <div id="outputPaywallOverlay" class="output-paywall-overlay" style="display: none;">
-            <div class="paywall-lock-icon">★</div>
-            <div class="paywall-lock-tag">PRO DRIFT & EXPORT SHIELD</div>
-            <h3 class="paywall-lock-title">Unlock Full AST Export & Drift Alerts</h3>
-            <p class="paywall-lock-desc">Exporting unthrottled RFC 9309 rulesets and activating automated crawler drift alerts is reserved for Pro license holders.</p>
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
-              <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe">★ Unlock Pro ($19 Lifetime)</a>
-              <button class="btn-depay" onclick="launchDePay()">⚡ Pay with SOL</button>
-            </div>
-            <div style="display: flex; gap: 12px; align-items: center; margin-top: 10px; justify-content: center;">
-              <button type="button" class="btn-key-activate" onclick="openLicenseModal()">Already purchased? Enter key ✦</button>
-              <button type="button" class="btn-key-activate" onclick="toggleAstDriftShield()" style="color: var(--text-dim); text-decoration: underline;">✕ Dismiss</button>
-            </div>
-          </div>
         </div>
 
         <div class="card-toolbar">
@@ -1134,8 +1145,8 @@
               <h3>⚡ Pro Automated Monitoring</h3>
               <p>Get alerted via Webhook or Telegram if bots start scraping private directories or sitemap drifts.</p>
             </div>
-            <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe" style="white-space: nowrap;">
-              $19 One-Time
+            <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener" class="btn-stripe" style="white-space: nowrap;">
+              Free (100% Open Access)
             </a>
           </div>
 
@@ -1159,61 +1170,13 @@
     </div>
   </footer>
 
-  <!-- Pro Paywall Modal -->
-  <div id="proPaywallModal" class="modal-overlay" data-alias="paywall-modal" onclick="if(event.target === this) closePaywallModal()">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 class="modal-title">⚡ Unlock RobotsTxt Pro</h3>
-        <button type="button" class="modal-close" aria-label="Close modal" onclick="closePaywallModal()">✕</button>
-      </div>
-      <p style="font-size: 13px; color: var(--text-muted);">One-time payment of <strong>$19</strong>. Lifetime access. Zero subscriptions.</p>
-      
-      <ul class="value-checkpoints">
-        <li><span>✓</span> 100% In-Browser RFC 9309 AST Parser</li>
-        <li><span>✓</span> Automated Daily Crawler Drift & Violation Alerts</li>
-        <li><span>✓</span> Full Rule Set Export & CI/CD Sitemap Syncer</li>
-        <li><span>✓</span> Frontier AI Agent Coverage (Googlebot, GPTBot, ClaudeBot, Perplexity)</li>
-        <li><span>✓</span> Unlimited Path Testing & Regex Directives</li>
-        <li><span>✓</span> Lifetime Commercial License & Free Updates</li>
-      </ul>
-
-      <div style="display: flex; flex-direction: column; gap: 8px; margin: 16px 0;">
-        <a href="https://buy.stripe.com/dRmdR8h2J5dS1z2cgEfw40J" target="_blank" rel="noopener" class="btn-stripe" style="justify-content: center; padding: 12px; font-size: 14px;">
-          ★ Unlock with Card / Apple Pay ($19)
-        </a>
-        <button type="button" class="btn-depay" onclick="launchDePay()" style="justify-content: center; padding: 12px; font-size: 14px;">
-          ⚡ Unlock with Crypto (Solana SOL / USDC)
-        </button>
-      </div>
-
-      <button type="button" class="btn-key-activate" onclick="openLicenseModal()" style="width: 100%; text-align: center;">
-        Already purchased? Activate with License Key / Email ✦
-      </button>
-    </div>
-  </div>
-
-  <!-- License Key Activation Modal -->
-  <div id="licenseModal" class="modal-overlay" data-alias="paywall-modal" onclick="if(event.target === this) closeLicenseModal()">
-    <div class="modal-card" style="max-width: 440px;">
-      <div class="modal-header">
-        <h3 class="modal-title">✦ Activate Pro License</h3>
-        <button type="button" class="modal-close" aria-label="Close license modal" onclick="closeLicenseModal()">✕</button>
-      </div>
-      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">Enter your Stripe receipt email or license key:</p>
-      <input type="text" id="license-input" placeholder="ROBOTS-PRO-2026 or receipt email" class="test-input" style="width: 100%; margin-bottom: 12px; color: #fff;" aria-label="Stripe receipt email or license key" onkeydown="if(event.key==='Enter') activateLicenseSubmit()">
-      <button id="btnActivateKey" type="button" onclick="activateLicenseSubmit()" class="btn-stripe" style="width: 100%; justify-content: center; padding: 10px; font-size: 13px;">
-        ⚡ Activate Lifetime License
-      </button>
-    </div>
-  </div>
-
   <!-- Toast Notification Container -->
   <div id="toast" class="toast">
     <span id="toast-message"></span>
   </div>
 
   <script>
-    let isProLicensed = false;
+    let isProLicensed = true;
 
     // Presets
     const PRESETS = {
@@ -1629,7 +1592,7 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       setTimeout(() => toast.classList.remove('show'), 3200);
     }
 
-    function checkProLicense() {
+    function checkProLicense() { isProLicensed = true; try { updateProUI(); } catch(e){} return true;
       const urlParams = new URLSearchParams(window.location.search);
       const isParamLicensed = (urlParams.get('licensed') === 'true' || urlParams.get('session_id') !== null);
       const isSavedLicensed = (localStorage.getItem('pro_licensed') === 'true' || 
@@ -1811,27 +1774,12 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       }, 100);
     }
 
-    function launchDePay() {
-      if (window.DePayWidgets && window.DePayWidgets.Payment) {
-        window.DePayWidgets.Payment({
-          integration: '428790dd-7ad1-407c-8ecf-c048c77a4cb8'
-        });
-      } else {
-        const script = document.createElement('script');
-        script.src = 'https://integrate.depay.com/widgets/v13.js';
-        script.defer = true;
-        script.onload = () => {
-          if (window.DePayWidgets && window.DePayWidgets.Payment) {
-            window.DePayWidgets.Payment({
-              integration: '428790dd-7ad1-407c-8ecf-c048c77a4cb8'
-            });
-          }
-        };
-        script.onerror = () => {
-          showToast('⚡ Solana payment receiver: GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK (Send 0.09 SOL to activate Pro)', 'info');
-        };
-        document.head.appendChild(script);
+    function copySolanaTip() {
+      const addr = 'GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr);
       }
+      showToast('⚡ Solana Tip address copied: ' + addr, 'success');
     }
 
     // Launch on load
