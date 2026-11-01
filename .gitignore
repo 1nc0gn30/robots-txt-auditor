@@ -4,3 +4,16 @@ node_modules
 .env.local
 .netlify
 shots/
+
+.venv/
+.venv*/
+venv/
+node_modules/
+__pycache__/
+*.pth
+*.onnx
+data/minds/spool.jsonl
+release-artifacts/
+build/*.iso*
+build/live_workspace/
+build/release-*/

@@ -1,0 +1,171 @@
+#!/usr/bin/env python3
+import sys
+import os
+import json
+import subprocess
+import argparse
+import urllib.request
+import urllib.error
+
+TOOL_ID = 'robots-txt-auditor'
+TOOL_REPO = 'robots-txt-auditor'
+TOOL_NAME = 'Robots.txt & AEO Auditor'
+TOOL_DESC = '100% in-browser RFC 9309 robots.txt parser, AI crawler simulator, drift detection, and AEO optimization.'
+TOOL_VERSION = '2.5.0'
+TOOL_CATEGORY = 'Growth & SEO'
+TOOL_PORT = 8086
+REPO_DIR = '/home/zoth/NullAITech/robots-txt-auditor'
+SERVER_SCRIPT = os.path.join(REPO_DIR, 'server.py')
+STUDIO_URL = f"http://127.0.0.1:3000/tools/{TOOL_ID}"
+LOCAL_PORT_URL = f"http://127.0.0.1:{TOOL_PORT}"
+
+sys.path.insert(0, REPO_DIR)
+from server import parse_robots_txt, PRESETS
+
+
+def check_daemon_status():
+    try:
+        req = urllib.request.Request(f"{LOCAL_PORT_URL}/health", headers={"User-Agent": "ZothOS-CLI"})
+        with urllib.request.urlopen(req, timeout=1.5) as resp:
+            if resp.status == 200:
+                data = json.loads(resp.read().decode('utf-8'))
+                return True, data
+    except Exception:
+        pass
+    return False, None
+
+
+def audit_content(content):
+    try:
+        data = json.dumps({"content": content}).encode('utf-8')
+        req = urllib.request.Request(
+            f"{LOCAL_PORT_URL}/api/audit",
+            data=data,
+            headers={"Content-Type": "application/json", "User-Agent": "ZothOS-CLI"}
+        )
+        with urllib.request.urlopen(req, timeout=2.0) as resp:
+            return json.loads(resp.read().decode('utf-8'))
+    except Exception:
+        parsed = parse_robots_txt(content)
+        return {"status": "ok", "parsed": parsed, "mode": "direct_rfc9309_engine"}
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog='robots-txt-auditor',
+        description=f"{TOOL_NAME} (v{TOOL_VERSION}) — {TOOL_DESC}"
+    )
+    parser.add_argument('--version', action='version', version=f"{TOOL_ID} v{TOOL_VERSION}")
+    parser.add_argument('--status', action='store_true', help='Check local ZothOS installation & daemon status')
+    parser.add_argument('--json', action='store_true', help='Output deterministic JSON telemetry')
+    parser.add_argument('--ui', action='store_true', help='Print local ZothOS workbench URL')
+    parser.add_argument('--presets', action='store_true', help='List curated RFC 9309 & Frontier AI presets')
+    parser.add_argument('--preset', type=str, help='Generate or audit a named preset (open_sovereign, stealth_disallow, selective_ai)')
+    parser.add_argument('--audit', type=str, help='Path or raw robots.txt content to audit')
+    parser.add_argument('--serve', action='store_true', help='Start background daemon server on port 8086')
+    parser.add_argument('file', nargs='?', help='Optional robots.txt file to audit')
+
+    args = parser.parse_args()
+
+    is_running, daemon_data = check_daemon_status()
+
+    if args.serve:
+        if is_running:
+            print(f"Robots.txt Auditor daemon already active on {LOCAL_PORT_URL}")
+            return
+        subprocess.run([sys.executable, SERVER_SCRIPT, "--port", str(TOOL_PORT)])
+        return
+
+    if args.presets:
+        if args.json:
+            print(json.dumps({"status": "ok", "presets": PRESETS}, indent=2))
+        else:
+            print(f"✦ Curated RFC 9309 & Frontier AI Presets ({len(PRESETS)}):")
+            for k, v in PRESETS.items():
+                lines = len(v["content"].strip().splitlines())
+                print(f"  • {k.ljust(18)} — {v['name']} ({lines} lines)")
+        return
+
+    target_content = None
+    if args.preset:
+        if args.preset not in PRESETS:
+            print(f"Error: Unknown preset '{args.preset}'. Choose from: {', '.join(PRESETS.keys())}")
+            sys.exit(1)
+        target_content = PRESETS[args.preset]["content"]
+
+    target_path = args.audit or args.file
+    if target_path:
+        if target_path in PRESETS:
+            target_content = PRESETS[target_path]["content"]
+        elif os.path.exists(target_path):
+            with open(target_path, 'r', encoding='utf-8', errors='ignore') as f:
+                target_content = f.read()
+        else:
+            target_content = target_path.replace("\\n", "\n")
+
+    if target_content is not None:
+        result = audit_content(target_content)
+        if args.json:
+            print(json.dumps(result, indent=2))
+        else:
+            if result.get("status") == "ok":
+                parsed = result.get("parsed", {})
+                print(f"✦ Robots.txt & Frontier AI Audit Report (RFC 9309)")
+                print(f"  Score / Grade : {parsed.get('score', 0)}/100 ({parsed.get('grade', 'N/A')})")
+                print(f"  Rules Summary : {parsed.get('line_count', 0)} lines, {parsed.get('user_agent_count', 0)} user-agents")
+                sitemaps = parsed.get('sitemaps', [])
+                print(f"  Sitemaps ({len(sitemaps)}) : {', '.join(sitemaps) if sitemaps else 'None declared'}")
+                print(f"  Frontier AI Crawler Matrix:")
+                frontier = parsed.get("frontier_ai_audit", {})
+                for bot, info in frontier.items():
+                    accessible = info.get("accessible", False)
+                    status_str = "✓ ALLOWED" if accessible else "✗ BLOCKED"
+                    src = info.get("rule_source", "*")
+                    disallows = info.get("disallows", [])
+                    dis_str = f" (disallows: {', '.join(disallows)})" if disallows else ""
+                    print(f"    - {bot.ljust(15)}: {status_str.ljust(11)} [rule: {src}]{dis_str}")
+            else:
+                print(f"Error: {result.get('message')}")
+        return
+
+    info = {
+        "id": TOOL_ID,
+        "repo": TOOL_REPO,
+        "name": TOOL_NAME,
+        "version": TOOL_VERSION,
+        "category": TOOL_CATEGORY,
+        "installed": os.path.exists(REPO_DIR),
+        "repo_path": REPO_DIR,
+        "daemon_running": is_running,
+        "studio_workbench_url": STUDIO_URL,
+        "local_endpoint": LOCAL_PORT_URL,
+        "daemon_telemetry": daemon_data,
+        "license": "100% Free & Open Access (Zero Paywalls)"
+    }
+
+    if args.json:
+        print(json.dumps(info, indent=2))
+    elif args.ui:
+        print(LOCAL_PORT_URL)
+    else:
+        print(f"=====================================================")
+        print(f"  {TOOL_NAME} (v{TOOL_VERSION})")
+        print(f"  {TOOL_DESC}")
+        print(f"=====================================================")
+        print(f"  Installed:       {'Yes' if info['installed'] else 'No'}")
+        print(f"  Daemon Port:     {LOCAL_PORT_URL} ({'Running' if is_running else 'Offline'})")
+        print(f"  Studio Route:    {STUDIO_URL}")
+        print(f"  License:         100% Free & Open Access (Zero Paywalls)")
+        print(f"  Coffee Tip:      https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X")
+        print(f"  Solana Tip:      GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK")
+        print(f"-----------------------------------------------------")
+        print(f"Usage:")
+        print(f"  robots-txt-auditor --status")
+        print(f"  robots-txt-auditor --presets")
+        print(f"  robots-txt-auditor --preset open_sovereign")
+        print(f"  robots-txt-auditor --audit /path/to/robots.txt [--json]")
+        print(f"=====================================================")
+
+
+if __name__ == '__main__':
+    main()

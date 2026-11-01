@@ -1,5 +1,5 @@
 # RobotsTxt AI Crawler Auditor — Context & Model Discovery (llms.txt)
-> Sovereign in-browser developer utility engineered by Neal Frazier Tech.
+> Sovereign in-browser developer utility engineered by 1nc0gn30 • NullAI.
 - [Application]: https://robots-txt-auditor.netlify.app/
 - [Terms of Service]: https://robots-txt-auditor.netlify.app/terms.html
 - [Privacy Policy]: https://robots-txt-auditor.netlify.app/privacy.html
