@@ -59,7 +59,7 @@ robots-txt --json
 # Start the standalone server daemon on port 8086
 robots-txt --serve
 # Or directly via Python:
-python3 /home/zoth/NullAITech/robots-txt-auditor/server.py --port 8086
+python3 ~/NullAITech/robots-txt-auditor/server.py --port 8086
 ```
 
 ---
