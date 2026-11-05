@@ -1470,6 +1470,22 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
       checkProLicense();
     });
   </script>
-  <script src="/assets/sovereign-upgrade.js" defer></script>
+  
+
+  <script src="/sovereign_tutorial.js"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      if (window.createSovereignTutorial) {
+        window.createSovereignTutorial({
+          toolId: "robots-txt-auditor",
+          toolName: "Robots.txt & AEO Auditor",
+          tagline: "Control how Google, Perplexity, GPTBot, and Claude crawl your website!",
+          accentColor: "#F59E0B",
+          steps: [{"icon": "\ud83e\udd16", "title": "What is Robots.txt?", "desc": "A simple text file in your website's root that tells search engine robots and AI crawlers which pages they can read."}, {"icon": "\ud83c\udf10", "title": "The 2026 AI Bot Matrix", "desc": "Check if your site is blocking or welcoming PerplexityBot, GPTBot, ClaudeBot, and Google-Extended."}, {"icon": "\u26a1", "title": "Instant AEO Audit", "desc": "Verifies sitemap links, crawl-delay directives, and Answer Engine indexation readiness."}]
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
