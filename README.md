@@ -1,135 +1,113 @@
-<div align="center">
-  <img src="assets/hero-banner.svg" alt="Robots.txt & AEO Auditor — Sovereign Architecture Banner" width="100%" />
-</div>
+# Robots.txt & AEO Auditor
 
-<br />
+![Robots.txt Auditor Hero Banner](assets/hero-banner.svg)
 
-<div align="center">
-  <a href="https://zoth.nullai.tech/tools/robots-txt-auditor"><img src="https://img.shields.io/badge/Zoth_Studio_v2-Workspace-D4AF37?style=for-the-badge&logo=sparkles&logoColor=black" alt="Zoth Studio Workspace" /></a>
-  <a href="http://127.0.0.1:8086"><img src="https://img.shields.io/badge/Daemon-Port_:8086-38BDF8?style=for-the-badge&logo=fastapi&logoColor=black" alt="Port :8086" /></a>
-  <a href="https://nullai.tech"><img src="https://img.shields.io/badge/Security-100%25_Zero--Egress-10B981?style=for-the-badge&logo=shield&logoColor=black" alt="Zero Egress" /></a>
-  <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X"><img src="https://img.shields.io/badge/☕_Buy_Us_a_Coffee-Stripe-D4AF37?style=for-the-badge" alt="Buy Us a Coffee" /></a>
-</div>
+**Robots.txt & AEO Auditor** (`robots-txt-auditor`) is a zero-dependency RFC 9309 `robots.txt` parser, AI crawler policy simulator, rule-drift analyzer, and local HTTP workstation (`127.0.0.1:8086`). Both the standalone browser client (`public/`) and the Python 3.9+ HTTP daemon (`server.py`) evaluate directive precedence without external runtime dependencies.
 
-# ⚡ Robots.txt & AEO Auditor
-
-> **Robots.txt & AEO Auditor — 100% in-browser RFC 9309 robots.txt parser, AI crawler simulator, drift detection, and AEO optimization.**
+- **Zoth Studio v2 Dossier**: [https://zoth.nullai.tech/tools/robots-txt-auditor](https://zoth.nullai.tech/tools/robots-txt-auditor)
+- **Repository**: [https://github.com/1nc0gn30/robots-txt-auditor](https://github.com/1nc0gn30/robots-txt-auditor)
+- **Default Loopback Endpoint**: `http://127.0.0.1:8086`
 
 ---
 
-## 🏛️ Architectural Overview
+## Overview
 
-**Robots.txt & AEO Auditor** is an official sovereign tool in the **[Zoth Studio v2](https://zoth.nullai.tech)** (77-Tool Matrix) and **[ZothOS Linux 3.3](https://zothos.nullai.tech)** ecosystem, engineered by **1nc0gn30 • NullAI ([@1nc0gn30](https://github.com/1nc0gn30))**.
+Modern web properties govern both search engine crawlers and AI answer engines (`GPTBot`, `OAI-SearchBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `Applebot-Extended`, `CCBot`, `Bytespider`). `robots-txt-auditor` parses `robots.txt` files against RFC 9309 rules and evaluates crawler access deterministically:
 
-| Property | Specification |
-| :--- | :--- |
-| **Tool ID** | `robots-txt-auditor` |
-| **Category** | `Growth & SEO` |
-| **Loopback Daemon Port** | `http://127.0.0.1:8086` |
-| **Execution Mode** | `browser` + Python Server Daemon |
-| **Zoth Studio Route** | [`http://127.0.0.1:3000/tools/robots-txt-auditor`](http://127.0.0.1:3000/tools/robots-txt-auditor) |
-| **License** | **100% Free & Open Access (Zero Paywalls)** |
+- **RFC 9309 Directive Parser (`parse_robots_txt`)**: Groups `User-agent` blocks, evaluates `Allow`, `Disallow`, `Crawl-delay`, and `Sitemap` declarations, and detects root lockouts (`Disallow: /`), missing sitemap declarations, and excessive crawl delays.
+- **AI Crawler Matrix**: Computes effective access (`ALLOWED` vs. `BLOCKED`), inherited wildcard (`*`) fallback vs. explicit bot overrides, and active `Disallow` patterns across major search and AI bots.
+- **Curated Policy Presets (`PRESETS`)**: Built-in `open_sovereign` (full search + AI answer engine access), `selective_ai` (allow search/citation bots while blocking training scrapers), and `stealth_disallow` templates.
+- **Dual Execution Modes**: Runs 100% client-side in `public/index.html` or via the local REST API and CLI (`server.py` / `bin/robots-txt-auditor`).
 
 ---
 
-## 💎 What It Does & How It Works
+## Architecture
 
-- **RFC 9309 AST Compliance**: Full client-side and server-side parsing conforming strictly to modern robots.txt syntax.
-- **Frontier AI & Search Engine Simulator**: Tests path permissions across Googlebot, GPTBot, ClaudeBot, PerplexityBot, and Applebot simultaneously.
-- **AEO Readiness Scoring**: Evaluates crawlability, sitemap inclusion, and explicit bot directives to maximize citation in AI Answer Engines.
-- **Drift Shield**: Detects accidental disallows, conflicting wildcard matching, and syntax errors in real-time.
-- **100% Zero-Egress Local Enclave Execution**: Runs completely on `127.0.0.1:8086` with zero third-party telemetry.
+```text
+robots.txt Input (File / Raw Text / Named Preset)
+       │
+       ▼
+RFC 9309 Parser (server.py :: parse_robots_txt)
+   ├── User-Agent Group Resolver (explicit bot rule vs '*' fallback)
+   ├── AI Crawler Matrix (GPTBot, ClaudeBot, PerplexityBot, Googlebot, ...)
+   ├── Sitemap & Crawl-Delay Hygiene Scorer (0–100 score, A+ to F grade)
+   └── HTTP Workstation (127.0.0.1:8086) + CLI (bin/robots-txt-auditor)
+```
 
 ---
 
-## 🛠️ ZothOS CLI & Daemon Commands
-
-The CLI is pre-installed in `/usr/local/bin/robots-txt-auditor` (aliased as `robots-txt`):
+## Quickstart
 
 ```bash
-# Check daemon health & ZothOS integration status
-robots-txt --status
+git clone https://github.com/1nc0gn30/robots-txt-auditor.git
+cd robots-txt-auditor
 
-# Audit a local robots.txt file or raw string
-robots-txt --audit /path/to/robots.txt
+# Start the HTTP workstation and REST API on 127.0.0.1:8086
+python3 server.py --host 127.0.0.1 --port 8086
+```
 
-# Deterministic JSON telemetry output
-robots-txt --json
+Open `http://127.0.0.1:8086` in your browser, or run via npm scripts:
 
-# Start the standalone server daemon on port 8086
-robots-txt --serve
-# Or directly via Python:
-python3 ~/NullAITech/robots-txt-auditor/server.py --port 8086
+```bash
+npm run serve
 ```
 
 ---
 
-## ☕ Support 1nc0gn30 • NullAI (Zero Paywalls)
+## CLI & ZothOS v3.4.0 Integration
 
-All tools across the Zoth Studio ecosystem are 100% free, unlocked, and open-source by default. If this utility provides value to your workflow, support development via:
+`bin/robots-txt-auditor` audits files, raw strings, or named presets directly (using the running `:8086` daemon when online or falling back to `parse_robots_txt` in-process):
 
-- **Stripe "Buy Us a Coffee"**: [https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X)
-- **Solana Tip Address**: `GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK`
+```bash
+# Check daemon health and JSON telemetry
+./bin/robots-txt-auditor --status
+./bin/robots-txt-auditor --json
 
----
+# List curated RFC 9309 & AI crawler policy presets
+./bin/robots-txt-auditor --presets
 
-<div align="center">
-  <sub>Engineered by <b>1nc0gn30 • NullAI</b> (<a href="https://github.com/1nc0gn30">@1nc0gn30</a>) &bull; <a href="https://nullai.tech">NullAI Platform</a> &bull; <a href="https://zoth.nullai.tech">Zoth Studio v2</a></sub>
-</div>
+# Audit a named preset or local robots.txt file
+./bin/robots-txt-auditor --preset open_sovereign
+./bin/robots-txt-auditor --audit public/robots.txt --json
 
----
-
-## 🏛️ ZothOS v3.4, Zoth Studio v2 & Obsidian Second Brain Ecosystem
-
-```mermaid
-flowchart LR
-    subgraph ZothOS["🐧 ZothOS v3.4 CLI & Braille TUI"]
-        CLI["robots-txt-auditor --help / --json"]
-        TUI["robots-txt-auditor-tui<br/>Unicode U+2800 2x4 Braille"]
-    end
-
-    subgraph Workstation["⚡ Sovereign Workstation"]
-        WEB["http://127.0.0.1:8086<br/>REST API & /health"]
-    end
-
-    subgraph Studio["🌌 Zoth Studio v2 & ZothOS-Lite"]
-        GODMODE["http://127.0.0.1:3000/tools/robots-txt-auditor<br/>God-Mode Workstation"]
-        LITE["http://127.0.0.1:8145<br/>ZothOS-Lite Web Desktop"]
-    end
-
-    subgraph SecondBrain["💎 Obsidian Second Brain & STDP"]
-        TRACKER["http://127.0.0.1:8151<br/>Zoth Obsidian Tracker"]
-        NEURO["http://127.0.0.1:8094<br/>Neuro-Memory STDP Cortex"]
-        NOTE["Studio/Tools/Studio robots-txt-auditor.md"]
-    end
-
-    CLI --> WEB
-    TUI --> WEB
-    WEB <--> GODMODE
-    WEB <--> LITE
-    WEB --> TRACKER
-    TRACKER <--> NOTE
-    NOTE <--> NEURO
+# Start the local daemon on 127.0.0.1:8086 if not already running
+./bin/robots-txt-auditor --serve
 ```
 
-### Cross-Surface Integration Matrix
+---
 
-| Surface | Endpoint / Binary | Capabilities |
+## REST API Reference
+
+| Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| **Standalone Workstation** | `http://127.0.0.1:8086` | 100% Free & Open-Access Web Deck, live `/health` & REST telemetry |
-| **Zoth Studio v2 Route** | `http://127.0.0.1:3000/tools/robots-txt-auditor` | Interactive God-Mode component inside Zoth Studio (`https://zoth.nullai.tech`) |
-| **ZothOS v3.4 CLI & TUI** | `robots-txt-auditor` / `robots-txt-auditor-tui` | Global binary in `/usr/local/bin/` with Unicode `U+2800` Braille TUI & `--json` output |
-| **ZothOS-Lite Web Desktop** | `http://127.0.0.1:8145` | Browser-native KDE-style window manager & terminal launcher |
-| **Zoth Obsidian Tracker** | `http://127.0.0.1:8151` | Interactive Obsidian Second Brain vault explorer (`~/Documents/Obsidian Vault/Studio/Tools/Studio robots-txt-auditor.md`) |
-| **Neuro-Memory STDP Cortex** | `http://127.0.0.1:8094` | 3-Factor STDP synaptic memory daemon & 21-tool MCP server |
+| `GET` | `/` | Web auditor workstation (`public/index.html`) |
+| `GET` | `/health`, `/api/health` | Service health, version, uptime, and feature list |
+| `GET` | `/api/presets` | Retrieve curated `robots.txt` policy templates |
+| `POST` | `/api/parse`, `/api/audit` | Parse and score `{"content": "User-agent: *\nAllow: /\n..."}` |
+
+Example `curl` audit:
 
 ```bash
-# Inspect CLI & Unicode U+2800 Braille TUI on ZothOS v3.4
-robots-txt-auditor --help
-robots-txt-auditor-tui --status
-robots-txt-auditor-tui --json
-
-# Verify Second Brain Vault & 12-Step Verification Gallery on :8151
-zoth-obsidian-tracker --verify
+curl -s -X POST http://127.0.0.1:8086/api/audit \
+  -H "Content-Type: application/json" \
+  -d '{"content": "User-agent: *\nAllow: /\nSitemap: https://example.com/sitemap.xml"}'
 ```
 
+---
+
+## Testing & Verification
+
+```bash
+python3 -m pytest -q
+./bin/robots-txt-auditor --help
+./bin/robots-txt-auditor --preset selective_ai --json
+```
+
+---
+
+## Support & License
+
+100% free and open-source software under the MIT License.
+
+- Optional support: [Buy Us a Coffee via Stripe](https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X)
+- Engineered by **1nc0gn30** (`@1nc0gn30`, [https://1nc0gn30.si](https://1nc0gn30.si)) • **NullAI** ([https://nullai.tech](https://nullai.tech))

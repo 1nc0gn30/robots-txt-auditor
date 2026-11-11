@@ -14,9 +14,9 @@ TOOL_DESC = '100% in-browser RFC 9309 robots.txt parser, AI crawler simulator, d
 TOOL_VERSION = '2.5.0'
 TOOL_CATEGORY = 'Growth & SEO'
 TOOL_PORT = 8086
-REPO_DIR = '~/NullAITech/robots-txt-auditor'
+REPO_DIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 SERVER_SCRIPT = os.path.join(REPO_DIR, 'server.py')
-STUDIO_URL = f"http://127.0.0.1:3000/tools/{TOOL_ID}"
+STUDIO_URL = f"https://zoth.nullai.tech/tools/{TOOL_ID}"
 LOCAL_PORT_URL = f"http://127.0.0.1:{TOOL_PORT}"
 
 sys.path.insert(0, REPO_DIR)
@@ -135,7 +135,6 @@ def main():
         "version": TOOL_VERSION,
         "category": TOOL_CATEGORY,
         "installed": os.path.exists(REPO_DIR),
-        "repo_path": REPO_DIR,
         "daemon_running": is_running,
         "studio_workbench_url": STUDIO_URL,
         "local_endpoint": LOCAL_PORT_URL,
@@ -157,7 +156,6 @@ def main():
         print(f"  Studio Route:    {STUDIO_URL}")
         print(f"  License:         100% Free & Open Access (Zero Paywalls)")
         print(f"  Coffee Tip:      https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X")
-        print(f"  Solana Tip:      GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK")
         print(f"-----------------------------------------------------")
         print(f"Usage:")
         print(f"  robots-txt-auditor --status")

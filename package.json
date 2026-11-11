@@ -1,16 +1,18 @@
 {
   "name": "robots-txt-auditor",
   "version": "2.5.0",
-  "description": "Instant Robots.txt & AI Bot Crawler Readiness Analyzer with Dynamic Sitemap Validator",
+  "description": "RFC 9309 robots.txt parser, AI crawler simulator, drift detector, and sitemap validator.",
   "main": "public/index.html",
-  "homepage": "https://robots-txt-auditor.netlify.app",
+  "homepage": "https://zoth.nullai.tech/tools/robots-txt-auditor",
   "repository": {
     "type": "git",
     "url": "https://github.com/1nc0gn30/robots-txt-auditor.git"
   },
   "scripts": {
-    "start": "python3 -m http.server 8086 --directory public",
-    "serve": "python3 -m http.server 8086 --directory public",
+    "start": "python3 server.py --port 8086",
+    "serve": "python3 server.py --port 8086",
+    "serve:public": "python3 -m http.server 8086 --directory public",
+    "test": "python3 -m pytest -q tests",
     "test:ui": "python3 scripts/verify_ui.py",
     "test:guardrail": "node test_guardrail.mjs",
     "deploy": "netlify deploy --prod --dir=public"
@@ -23,9 +25,8 @@
     "perplexitybot",
     "rfc9309",
     "ast-parser",
-    "sovereign",
     "nullai"
   ],
-  "author": "1nc0gn30 (@1nc0gn30) • NullAI Platform",
+  "author": "1nc0gn30 (@1nc0gn30) • NullAI",
   "license": "MIT"
 }

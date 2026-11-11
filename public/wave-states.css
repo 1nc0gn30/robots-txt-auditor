@@ -57,7 +57,6 @@ textarea.editor:focus-visible,
 #btnCopyRobots:focus-visible,
 #btnAstDrift:focus-visible,
 .btn-stripe:focus-visible,
-.btn-depay:focus-visible,
 .btn-key-activate:focus-visible,
 .modal-close:focus-visible {
   outline: 2px solid var(--cyan) !important;
@@ -298,7 +297,6 @@ textarea.editor:placeholder-shown {
   #btnAstDrift,
   .btn-test,
   .btn-stripe,
-  .btn-depay,
   .btn-key-activate,
   .crawler-row,
   .toast,
