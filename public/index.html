@@ -789,7 +789,7 @@
 <div id="zoth-coffee-support-bar" style="background: linear-gradient(90deg, rgba(16,185,129,0.12), rgba(212,175,55,0.14)); border-bottom: 1px solid rgba(212,175,55,0.35); padding: 8px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; z-index: 9999;">
   <span style="color: #10B981; font-weight: 800;">✦ 100% FREE &amp; OPEN ACCESS · ZERO PAYWALLS · LOCAL DAEMON :8086</span>
   <a href="https://buy.stripe.com/3cIfZg27PdKo2D64Ocfw40X" target="_blank" rel="noopener noreferrer" style="background: #D4AF37; color: #08080B; padding: 4px 12px; border-radius: 6px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">☕ Buy Us a Coffee (Stripe)</a>
-  <a href="solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" title="Solana Tip Address: GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" onclick="if(navigator.clipboard){navigator.clipboard.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK');this.textContent='✓ Copied GG2e…dXoK!';}" style="background: #047857; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.28); padding: 4px 12px; border-radius: 6px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">◎ Solana Tip: GG2e…dXoK</a>
+  <a href="solana:GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" title="Solana Tip Address: GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK" onclick="if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText('GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK').catch(function(){});}this.textContent='✓ Copied GG2e…dXoK!';" style="background: #047857; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.28); padding: 4px 12px; border-radius: 6px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">◎ Solana Tip: GG2e…dXoK</a>
   <a href="http://127.0.0.1:3000/tools/robots-txt-auditor" style="background: rgba(16,185,129,0.18); color: #34D399; border: 1px solid rgba(16,185,129,0.45); padding: 4px 10px; border-radius: 6px; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Zoth Studio God-Mode ↗</a>
 </div>
 
@@ -1419,7 +1419,11 @@ Sitemap: https://robots-txt-auditor.netlify.app/sitemap.xml`
     function copySolanaTip() {
       const addr = 'GG2eQbVh8ut1BK6j1A2tz7pSySdLpD38BgyEhGcxdXoK';
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(addr);
+        navigator.clipboard.writeText(addr).catch(() => {
+          fallbackCopy(addr);
+        });
+      } else {
+        fallbackCopy(addr);
       }
       showToast('⚡ Solana Tip address copied: ' + addr, 'success');
     }
